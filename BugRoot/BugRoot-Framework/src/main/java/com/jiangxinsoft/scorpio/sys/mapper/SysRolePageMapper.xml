@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysRolePageMapper">
+
+	<resultMap id="rolePageResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysRolePage">
+		<id column="PageID" property="pageId" jdbcType="VARCHAR" />
+		
+		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+		
+		<result column="ModuleID" property="moduleId" jdbcType="VARCHAR" />
+		
+		<result column="PageName" property="pageName" jdbcType="VARCHAR" />
+  		<result column="PageIcon" property="pageIcon" jdbcType="VARCHAR" />
+  		<result column="PageURL" property="pageURL" jdbcType="VARCHAR" />
+  		<result column="PageOrder" property="pageOrder" jdbcType="NUMERIC" />
+  		<result column="PageToken" property="pageToken" jdbcType="VARCHAR" />
+  		<result column="PageRemark" property="pageRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="RoleID" property="roleId" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysRolePage">
+		insert into SYS_ROLE_PAGE
+		(
+			ID,
+			
+			RoleID,
+			PageID,
+			
+			Flag
+		)
+		values
+		(
+			#{authId, jdbcType=VARCHAR} ,
+			
+			#{roleId, jdbcType=VARCHAR} ,
+			#{pageId, jdbcType=VARCHAR} ,
+			
+			#{flag, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<delete id="deleteByRoleKey" parameterType="String">
+		delete from SYS_ROLE_PAGE where RoleID = #{roleId}
+	</delete>
+	
+	<select id="selectByRoleKey" parameterType="hashMap" resultMap="rolePageResultMap">
+		select
+			A.PageID as PageID,
+			   
+			A.ParentID as ParentID,
+			
+			A.ModuleID as ModuleID,
+			
+			A.PageName as PageName,
+			A.PageIcon as PageIcon,
+			A.PageURL as PageURL,
+			A.PageOrder as PageOrder,
+			A.PageToken as PageToken,
+			A.PageRemark  as PageRemark,
+		
+			B.RoleID as RoleID
+		from (
+			select
+				p.PageID as PageID,
+				   
+				p.ParentID as ParentID,
+				
+				p.ModuleID as ModuleID,
+				
+				p.PageName as PageName,
+				p.PageIcon as PageIcon,
+				p.PageURL as PageURL,
+				p.PageOrder as PageOrder,
+				p.PageToken as PageToken,
+				p.PageRemark  as PageRemark
+			from 
+				SYS_MODULE_PAGE p
+			where
+				p.PageFlag = '0'
+		) A left join (
+			select 
+				rp.RoleID as RoleID,
+				rp.PageID as PageID
+			from 
+				SYS_ROLE_PAGE rp
+			where 
+				rp.Flag = '1'
+			and
+				rp.RoleID = #{roleId}
+		) B on A.PageID = B.PageID
+	</select>
+	
+	<select id="selectByUserAndModule" parameterType="hashMap" resultMap="rolePageResultMap">
+		select
+			p.PageID as PageID,
+	   	
+			p.ParentID as ParentID,
+			
+			p.ModuleID as ModuleID,
+			
+			p.PageName as PageName,
+			p.PageIcon as PageIcon,
+			p.PageURL as PageURL,
+			p.PageOrder as PageOrder,
+			p.PageToken as PageToken,
+			p.PageRemark as PageRemark
+		from
+			SYS_MODULE_PAGE p, (
+			select
+				rp.PageID as PageID
+			from 
+				SYS_ROLE_PAGE rp, (
+				select
+					rm.RoleID as RoleID
+				from
+					SYS_ROLE_MEMBER rm
+				where
+					rm.UserID = #{userId}
+			) ur
+			where 
+				rp.RoleID = ur.RoleID
+		) up
+		where
+			p.PageID = up.PageID
+		and
+			p.ModuleID = #{moduleId}
+	</select>
+</mapper>

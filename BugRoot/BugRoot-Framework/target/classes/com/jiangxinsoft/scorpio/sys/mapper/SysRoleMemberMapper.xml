@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysRoleMemberMapper">
+	<resultMap id="roleMemberResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysRoleMember">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		
+		<result column="RoleID" property="roleId" jdbcType="VARCHAR" />
+		<result column="RoleName" property="roleName" jdbcType="VARCHAR" />
+		
+		<result column="UserID" property="userId" jdbcType="VARCHAR" />
+		<result column="TrueName" property="trueName" jdbcType="VARCHAR" />
+	
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+		
+		<result column="UserRemark" property="userRemark" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysRoleMember">
+		insert into SYS_ROLE_MEMBER
+		(
+			ID,
+			
+			RoleID,
+			UserID,
+			
+			CreateTime
+		)
+		values
+		(
+			#{id, jdbcType=VARCHAR} ,
+			
+			#{roleId, jdbcType=VARCHAR} ,
+			#{userId, jdbcType=VARCHAR},
+			
+			#{createTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<delete id="deleteByUserId" parameterType="String">
+		delete 
+			from SYS_ROLE_MEMBER 
+		where 
+			UserID = #{userId}
+	</delete>
+	
+	<delete id="deleteByRoleAndUserId" parameterType="hashMap">
+		delete 
+			from SYS_ROLE_MEMBER 
+		where 
+			RoleID = #{roleId}
+		and
+			UserID = #{userId}
+	</delete>
+	
+	<select id="select" parameterType="hashMap" resultMap="roleMemberResultMap">
+		select
+			rm.ID as ID,
+			
+			rm.UserID as UserID,
+			u.TrueName as TrueName,
+			
+			rm.RoleID as RoleID,
+			r.RoleName as RoleName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark
+		from 
+			SYS_ROLE_MEMBER rm left join SYS_USER u on rm.UserID = u.UserID left join SYS_ORGANIZATION 
+			o on u.DepartmentID = o.DepartmentID, 
+			SYS_ROLE r
+		where
+			rm.RoleID = r.RoleID
+		and
+			u.UserKind = '0'
+		<if test="roleId != null and roleId != ''">
+			and rm.RoleID = #{roleId}
+		</if>
+		order by
+			rm.CreateTime Desc
+	</select>
+	
+</mapper>

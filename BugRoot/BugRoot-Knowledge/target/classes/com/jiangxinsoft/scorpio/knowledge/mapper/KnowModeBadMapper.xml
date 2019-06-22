@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowModeBadMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowModeBad">
+		<id column="BadID" property="badId" jdbcType="VARCHAR" />
+		<result column="ModeID" property="modeId" jdbcType="VARCHAR" />	
+  		<result column="UserID" property="userId" jdbcType="VARCHAR" />	
+ 
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_MODE_BAD 
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		BadID = #{badId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeBad">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			BadID,	
+			ModeID,
+			UserID
+		)
+		values
+		(
+			#{badId, jdbcType=VARCHAR} ,
+			#{modeId, jdbcType=VARCHAR} ,
+			#{userId, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeBad">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ModeID = #{modeId, jdbcType=VARCHAR} ,
+			UserID =  #{userId, jdbcType=VARCHAR} 
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			kmg.BadID as BadID,
+			
+			kmg.ModeID as ModeID,
+			kmg.UserID as UserID,
+			count(*)
+		from
+			KNOW_MODE_BAD kmg
+		where
+			kmg.ModeID = #{modeId}
+	</select>
+
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			kmg.BadID as BadID,
+			
+			kmg.ModeID as ModeID,
+			kmg.UserID as UserID
+	
+		from
+		    KNOW_MODE_BAD kmg
+		where
+			kmg.ModeID = #{modeId} and
+			kmg.UserID = #{userId}
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where BadID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

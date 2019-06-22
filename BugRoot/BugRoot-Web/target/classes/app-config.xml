@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-config>
+	<mysql-install-path>C:\SoftWares\java\OtherSettings\PdmInstall\PDM\mysql</mysql-install-path>
+	<web-resource-path>C:\SoftWares\java\OtherSettings\PdmInstall\PDM\pdmRoot</web-resource-path>
+	<web-office-path>C:\SoftWares\java\OtherSettings\PdmInstall\PDM\office</web-office-path>
+	<web-index-path>C:\SoftWares\java\OtherSettings\PdmInstall\PDM\pdmRoot</web-index-path>
+</app-config>

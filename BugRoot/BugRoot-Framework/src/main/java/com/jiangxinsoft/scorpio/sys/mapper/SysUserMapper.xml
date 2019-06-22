@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysUserMapper">
+
+	<resultMap id="userResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysUser">
+		<id column="UserID" property="userId" jdbcType="VARCHAR" />
+		
+		<result column="UserName" property="userName" jdbcType="VARCHAR" />
+		<result column="UserCard" property="userCard" jdbcType="VARCHAR" />
+		<result column="UserIcon" property="userIcon" jdbcType="VARCHAR" />
+		<result column="Password" property="password" jdbcType="VARCHAR" />
+		
+		<result column="UserKind" property="userKind" jdbcType="VARCHAR" />
+		<result column="UserState" property="userState" jdbcType="VARCHAR" />
+		
+		<result column="TrueName" property="trueName" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+		
+		<result column="UserRemark" property="userRemark" jdbcType="VARCHAR" />
+		
+		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_USER
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysUser">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			UserID,
+			
+			UserName,
+			UserCard,
+			Password,
+			
+			UserKind,
+			UserState,
+			
+			TrueName,
+			DepartmentID,
+			
+			UserRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{userId, jdbcType=VARCHAR} ,
+			
+			#{userName, jdbcType=VARCHAR} ,
+			#{userCard, jdbcType=VARCHAR} ,
+			#{password, jdbcType=VARCHAR} ,
+			
+			#{userKind, jdbcType=VARCHAR} ,
+			#{userState, jdbcType=VARCHAR} ,
+			
+			#{trueName, jdbcType=VARCHAR} ,
+			#{departmentId, jdbcType=VARCHAR} ,
+			
+			#{userRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysUser">
+		update
+			<include refid="tableNameSql"/>
+		set
+			<if test="userCard != null and userCard != ''">	
+				UserCard = #{userCard, jdbcType=VARCHAR}, 
+			</if>
+			
+			<if test="userIcon != null and userIcon != ''">
+				UserIcon = #{userIcon, jdbcType=VARCHAR}, 
+			</if>
+			
+			<if test="trueName != null and trueName != ''">	
+				TrueName = #{trueName, jdbcType=VARCHAR}, 
+			</if>
+			
+			<if test="departmentId != null and departmentId != ''">
+				DepartmentID = #{departmentId, jdbcType=VARCHAR}, 
+			</if>
+			
+			<if test="userRemark != null">	
+				UserRemark = #{userRemark, jdbcType=VARCHAR} ,
+			</if>
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where 
+			UserID = #{userId}
+	</update>
+	
+	<update id="updateStateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysUser">
+		update
+			<include refid="tableNameSql"/>
+		set
+			<if test="userState != null and userState != ''">
+				UserState = #{userState, jdbcType=VARCHAR}, 
+			</if>
+			
+			 
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where 
+			UserID = #{userId}
+	</update>
+	
+	<update id="updatePasswordByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysUser">
+		update
+			<include refid="tableNameSql"/>
+		set
+			<if test="password != null and password != ''">
+				Password = #{password, jdbcType=VARCHAR}, 
+			</if>
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where 
+			UserID = #{userId}
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="userResultMap">
+		select
+			u.UserID as UserID,
+			
+			u.UserName as UserName,
+			u.Password as Password,
+			u.UserCard as UserCard,
+			u.UserIcon as UserIcon,
+			u.UserKind as UserKind,
+			
+			u.UserState as UserState,
+			u.TrueName as TrueName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark
+		from 
+			SYS_USER u, SYS_ORGANIZATION o
+		where
+			u.DepartmentID = o.DepartmentID
+		and 
+			u.UserID = #{userId}
+	</select>
+	
+	<select id="selectByUserName" parameterType="String" resultMap="userResultMap">
+		select
+			u.UserID as UserID,
+			
+			u.UserName as UserName,
+			u.Password as Password,
+			u.UserCard as UserCard,
+			u.UserIcon as UserIcon,
+			u.UserKind as UserKind,
+			
+			u.UserState as UserState,
+			u.TrueName as TrueName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark
+		from 
+			SYS_USER u, SYS_ORGANIZATION o
+		where
+			u.DepartmentID = o.DepartmentID
+		and 
+			u.UserName = #{userName}
+	</select>
+	
+	<select id="selectByUserCard" parameterType="String" resultMap="userResultMap">
+		select
+			u.UserID as UserID,
+			
+			u.UserName as UserName,
+			u.Password as Password,
+			u.UserCard as UserCard,
+			u.UserIcon as UserIcon,
+			u.UserKind as UserKind,
+			
+			u.UserState as UserState,
+			u.TrueName as TrueName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark
+		from 
+			SYS_USER u, SYS_ORGANIZATION o
+		where
+			u.DepartmentID = o.DepartmentID
+		and 
+			u.UserCard = #{userCard}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="userResultMap">
+		select
+			u.UserID as UserID,
+			
+			u.UserName as UserName,
+			u.UserCard as UserCard,
+			u.UserKind as UserKind,
+			
+			u.UserState as UserState,
+			u.TrueName as TrueName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark,
+			
+			u.CreateTime as CreateTime,
+			u.UpdateTime as UpdateTime
+		from 
+			SYS_USER u, SYS_ORGANIZATION o
+		where
+			u.DepartmentID = o.DepartmentID
+		and
+			u.UserKind = '0' 
+		<if test="userName != null and userName != ''"> 
+			and u.UserName = #{userName}
+		</if>
+		<if test="userCard != null and userCard != ''"> 
+			and u.UserCard = #{userCard}
+		</if>
+		<if test="userState != null and userState != ''"> 
+			and u.UserState = #{userState}
+		</if>
+		<if test="departmentId != null and departmentId != ''"> 
+			and u.DepartmentID = #{departmentId}
+		</if>
+		<if test="trueName != null and trueName != ''"> 
+			and u.TrueName like "%"#{trueName}"%"
+		</if>
+	</select>
+	
+	<select id="selectByRole" parameterType="hashMap" resultMap="userResultMap">
+		select
+			u.UserID as UserID,
+			
+			u.UserName as UserName,
+			u.UserCard as UserCard,
+			
+			u.UserKind as UserKind,
+			u.UserState as UserState,
+			u.TrueName as TrueName,
+			
+			u.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			u.UserRemark as UserRemark,
+			
+			u.CreateTime as CreateTime,
+			u.UpdateTime as UpdateTime
+		from 
+			SYS_USER u right join SYS_ROLE_MEMBER rm on u.UserID = rm.UserID, SYS_ORGANIZATION o
+		where
+			u.UserKind = '0' 
+		and 
+			u.DepartmentID = o.DepartmentID
+			
+		<if test="userName != null and userName != ''">
+			and u.UserName = #{userName}
+		</if>
+		
+		<if test="departmentId != null and departmentId != ''"> 
+			and u.DepartmentID = #{departmentId}
+		</if>
+		<if test="trueName != null and trueName != ''">
+			and u.TrueName = #{trueName}
+		</if>
+		
+		<if test="roleId != null and roleId != ''">
+			and rm.RoleID = #{roleId}
+		</if>
+	</select>
+	
+	<select id="selectPermissionByUserId" parameterType="String" resultType="String">
+		select
+			p.PageToken as PageToken
+		from
+			SYS_MODULE_PAGE p, (
+			select
+				rp.PageID as PageID
+			from 
+				SYS_ROLE_PAGE rp, (
+				select
+					rm.RoleID as RoleID
+				from
+					SYS_ROLE_MEMBER rm
+				where
+					rm.UserID = #{userId}
+			) ur
+			where 
+				rp.RoleID = ur.RoleID
+		) up
+		where
+			p.PageID = up.PageID
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from 
+			<include refid="tableNameSql"/>
+		where 
+			UserID = #{userId}
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where UserID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

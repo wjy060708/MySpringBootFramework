@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowModeRuleMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowModeRule">
+		
+		<id column="RuleID" property="ruleId" jdbcType="VARCHAR" />
+			
+		<result column="ModeID" property="modeId" jdbcType="VARCHAR" />
+		<result column="ModeName" property="modeName" jdbcType="VARCHAR" />
+		
+		<result column="TypeID" property="typeId" jdbcType="VARCHAR" />
+		
+		<result column="DocumentExtension" property="documentExtension" jdbcType="VARCHAR" />
+		
+		<result column="ResourceID" property="resourceId" jdbcType="VARCHAR" />
+  		
+  		<result column="RuleContent" property="ruleContent" jdbcType="VARCHAR" />
+  		<result column="RuleTitle" property="ruleTitle" jdbcType="VARCHAR" />
+  		
+  		
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_MODE_RULE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		RuleID = #{ruleId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeRule">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			RuleID,
+			
+			ModeID,
+			
+			TypeID,
+			
+			ResourceID,
+			
+			RuleContent,
+			RuleTitle
+
+		)
+		values
+		(
+			#{ruleId, jdbcType=VARCHAR} ,
+
+			#{modeId, jdbcType=VARCHAR},
+			
+			#{typeId, jdbcType=VARCHAR},
+			
+			#{resourceId, jdbcType=VARCHAR},
+			
+			#{ruleContent, jdbcType=VARCHAR},
+			#{ruleTitle, jdbcType=VARCHAR}
+			
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeRule">
+		update
+			<include refid="tableNameSql"/>
+		set
+			RuleContent = #{ruleContent, jdbcType=VARCHAR},
+			
+			ModeID = #{modeID, jdbcType=VARCHAR},
+			
+			TypeID = #{typeId, jdbcType=VARCHAR}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">	
+		select
+			kmc.RuleID as RuleID,
+
+			kmc.ModeID as ModeID,
+			kmd.ModeName as ModeName,
+			
+			kmc.ResourceID as ResourceID,
+			fr.FileExtension as DocumentExtension,
+			
+			kmc.RuleTitle as RuleTitle
+			
+		from
+			KNOW_MODE_RULE kmc  left join KNOW_MODE kmd on kmc.ModeID = kmd.ModeID, 
+			SYS_FILE_RESOURCE fr
+			
+		where
+			kmc.ResourceID = fr.FileID
+		and
+			kmc.RuleID = #{ruleId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+		    kmc.RuleID as RuleID,
+			
+			kmc.ModeID as ModeID,
+			kmd.ModeName as ModeName,
+				
+			kmc.TypeID as TypeID,
+			
+			kmc.ResourceID as ResourceID,
+			
+			kmc.RuleContent as RuleContent,
+			kmc.RuleTitle as RuleTitle
+
+		from
+			KNOW_MODE_RULE kmc left join KNOW_MODE kmd on kmc.modeID = kmd.modeID
+		where
+			1 = 1 
+			
+	    <if test="modeId != null and modeId != ''"> 
+			and kmc.ModeID = #{modeId}
+		</if> 
+		
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where RuleID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

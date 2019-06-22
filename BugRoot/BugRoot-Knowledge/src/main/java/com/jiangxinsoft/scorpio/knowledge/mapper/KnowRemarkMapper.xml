@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowRemarkMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowRemark">
+		<id column="RemarkID" property="remarkId" jdbcType="VARCHAR" />
+		<result column="Content" property="content" jdbcType="VARCHAR" />
+		
+		<result column="UserID" property="userId" jdbcType="VARCHAR" />
+  		<result column="UserName" property="userName" jdbcType="VARCHAR" />
+  		
+  		<result column="ModeID" property="modeId" jdbcType="VARCHAR" />
+		
+  		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+
+  		<result column="RemarkTime" property="remarkTime" jdbcType="TIMESTAMP" />
+  		
+  		<result column="GoodNum" property="goodNum" jdbcType="INTEGER" />
+  		<result column="BadNum" property="badNum" jdbcType="INTEGER"/>
+  		<result column="UserIcon" property="userIcon" jdbcType="VARCHAR"/>
+  		
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_REMARK
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		RemarkID = #{remarkId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowRemark">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			RemarkID,
+			Content,
+			
+			UserID,
+			UserName,
+			
+			ModeID,
+			ParentID,
+			RemarkTime,
+			GoodNum,
+			BadNum
+
+		)
+		values
+		(
+			#{remarkId, jdbcType=VARCHAR} ,
+			#{content, jdbcType=VARCHAR} ,
+			
+			#{userId, jdbcType=VARCHAR} ,
+			#{userName, jdbcType=VARCHAR} ,
+			
+			#{modeId, jdbcType=VARCHAR} ,
+			#{parentId, jdbcType=VARCHAR} ,
+		
+			#{remarkTime, jdbcType=TIMESTAMP} ,
+			
+			#{goodNum, jdbcType=INTEGER} ,
+			
+			#{badNum, jdbcType=INTEGER} 
+	   
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowRemark">
+		update
+			<include refid="tableNameSql"/>
+		set
+			RemarkID = #{remarkId, jdbcType=VARCHAR}
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+		
+			kr.RemarkID as RemarkID,
+			kr.Content as Content,
+			
+			kr.UserID as UserID,
+			u.UserName as UsernName,
+			
+			kr.parentID as parentID,
+			
+			kr.ModeID as ModeID,
+			
+	        kr.RemarkTime as RemarkTime,
+	       
+	        kr.GoodNum as  GoodNum,
+	        kr.BadNum as  BadNum
+	        
+		from
+			KNOW_REMARK kr left join KNOW_MODE_CONTENT kmc  on kr.ModeID = kmc.ModeID
+			left join sys_user u on kr.UserID = u.UserID
+		where
+			kr.RemarkID = #{remarkId}
+		
+	</select>
+	
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+		
+			kr.RemarkID as RemarkID,
+			kr.Content as Content,
+			
+			kr.UserID as UserID,
+			u.UserName as UserName,
+			u.UserIcon as UserIcon,
+			
+			kr.parentID as ParentID,
+			
+			kr.ModeID as ModeID,
+			
+	        kr.RemarkTime as RemarkTime,
+	       
+	        kr.GoodNum as  GoodNum,
+	        kr.BadNum as  BadNum
+	        
+		from
+			KNOW_REMARK kr left join KNOW_MODE kmc  on kr.ModeID = kmc.ModeID
+			left join sys_user u on kr.UserID = u.UserID
+		where
+			1 = 1 
+			
+	    <if test="modeId != null and modeId != ''"> 
+			and kr.ModeID = #{modeId}
+		</if> 
+			
+	    <if test="content != null and content != ''"> 
+			and kc.Content like "%"#{content}"%"
+		</if>  
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where RemarkID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

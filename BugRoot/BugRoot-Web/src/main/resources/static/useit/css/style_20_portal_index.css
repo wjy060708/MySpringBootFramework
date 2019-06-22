@@ -1,0 +1,868 @@
+.h30 {
+	margin-top: 10px;
+}
+
+.bgfff {
+	background-color: #fff;
+}
+
+.top10 {
+	margin-top: 10px;
+}
+
+.top15 {
+	margin-top: 15px;
+}
+
+.top20 {
+	margin-top: 15px;
+}
+
+.deantitle {
+	height: 40px;
+	line-height: 40px;
+	text-indent: 35px;
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/list.png)
+		10px 13px no-repeat;
+	font-family: microsoft yahei;
+	font-size: 16px;
+	color: #fff;
+}
+
+.deantitle span {
+	float: left;
+}
+
+.deantitle a {
+	display: block;
+	float: right;
+	padding-right: 10px;
+	width: 24px;
+	height: 40px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/arrow.png)
+		0 11px no-repeat;
+}
+
+.deangraytitle {
+	background-color: #ffc18a;
+}
+
+.deanblacktitle {
+	background-color: #b0aeae;
+}
+
+.deangreentitle {
+	background-color: #ffc18a;
+}
+
+.deantj .deantitle {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icon/groupicon.png);
+}
+
+.deanhot .deantitle {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icon/newicon.png);
+}
+
+.deanpic .deantitle {
+	background-position: 10px 10px;
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icon/picicon.png);
+}
+
+.deanmember .deantitle {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icon/membericon.png);
+	background-position: 10px 10px;
+}
+
+.deanpartl {
+	width: 780px;
+	float: left;
+}
+
+.deanpartr {
+	width: 320px;
+	float: right;
+}
+
+.deanlistpic {
+	background: #E4E4E4;
+	width: 780px;
+	height: 350px;
+}
+
+#slideshow {
+	
+}
+
+#focus {
+	width: 780px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+}
+
+#focus ul {
+	height: 350px;
+	position: absolute;
+}
+
+#focus ul li {
+	float: left;
+	width: 780px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+	background: #E4E4E4;
+}
+
+#focus .btn {
+	position: absolute;
+	width: 160px;
+	height: 10px;
+	right: 0;
+	bottom: 50px;
+	overflow: hidden;
+	z-index: 11;
+	display: none;
+}
+
+#focus .btn span {
+	display: inline-block;
+	_display: inline;
+	_zoom: 1;
+	width: 25px;
+	height: 10px;
+	_font-size: 0;
+	margin-left: 5px;
+	cursor: pointer;
+	background: #000;
+}
+
+#focus .btn span.on {
+	background: #333;
+}
+
+#focus .preNext {
+	width: 45px;
+	height: 100px;
+	position: absolute;
+	top: 90px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/sprite.png)
+		no-repeat 0 0;
+	cursor: pointer
+}
+
+#focus .pre {
+	left: 0;
+}
+
+#focus .next {
+	right: 0;
+	background-position: right top;
+}
+
+#focus ul li .slideother {
+	position: absolute;
+	bottom: 0px;
+	width: 780px;
+	height: 80px;
+	z-index: 10;
+	text-align: left;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/black.png)
+		0 0 repeat;
+}
+
+.deanauthoravar {
+	display: block;
+	position: absolute;
+	bottom: 15px;
+	right: 30px;
+	border: 1px solid #ccc;
+	width: 42px;
+	height: 42px;
+	overflow: hidden;
+}
+
+.deanauthoravar img {
+	display: block;
+	width: 42px;
+	height: 42px;
+}
+
+#focus ul li .slideother .deannum {
+	font-size: 35px;
+	width: 46px;
+	height: 80px;
+	line-height: 80px;
+	color: #57BAE8;
+	float: left;
+	padding-left: 10px;
+}
+
+.deanaaa {
+	float: left;
+	width: 530px;
+	overflow: hidden;
+}
+
+#focus ul li .slideother .h12 {
+	font-size: 16px;
+	padding: 20px 10px 5px 10px;
+}
+
+#focus ul li .slideother .h12 b {
+	float: left;
+	color: #fff;
+	font-weight: normal;
+	padding-left: 10px;
+}
+
+#focus ul li .slideother .h12 a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+}
+
+#focus ul li .slideother .h12 a:hover {
+	text-decoration: none;
+	color: #57BAE8;
+}
+
+#focus ul li .slideother .deanp {
+	padding-left: 10px;
+	font-size: 12px;
+	color: #ccc;
+}
+
+.deanboxl {
+	width: 320px;
+	float: left;
+}
+
+.deanboxr {
+	width: 345px;
+	float: right;
+}
+
+.deanboxlpic {
+	width: 320px;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}
+
+.deanboxlpic a img {
+	transition: all 1.2s;
+	-moz-transition: all 1.2s;
+	-webkit-transition: all 1.2s;
+	-o-transition: all 1.2s;
+}
+
+.deanboxlpic a:hover img {
+	transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+}
+
+.deanboxlsummary {
+	color: #999;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.deanboxlsummary span {
+	color: #57BAE8;
+}
+
+.deanboxlname {
+	display: block;
+	width: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 200px;
+	height: 40px;
+	line-height: 40px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/black.png)
+		0 0 repeat;
+	color: #fff;
+	font-size: 16px;
+}
+
+.deanboxlname a {
+	color: #fff;
+	text-decoration: none;
+	padding-left: 10px;
+}
+
+.deanmores {
+	background: #57BAE8;
+	color: #fff;
+	padding: 3px 10px;
+	font-size: 12px;
+	float: right;
+}
+
+.deanmores:hover {
+	background: #FFC18A;
+	text-decoration: none;
+}
+
+.deanboxr {
+	
+}
+
+.deanboxr ul {
+	
+}
+
+.deanboxr ul li {
+	padding: 12px 0;
+	border-bottom: 1px solid #f6f6f6;
+}
+
+.deanboxr ul li .deanboxrpic {
+	float: left;
+	width: 140px;
+	height: 80px;
+	overflow: hidden;
+}
+
+.deanboxr ul li .deanboxrpic img {
+	transition: all 1.2s;
+	-moz-transition: all 1.2s;
+	-webkit-transition: all 1.2s;
+	-o-transition: all 1.2s;
+}
+
+.deanboxr ul li .deanboxrpic a:hover img {
+	transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+}
+
+.deanboxr ul li .deanboxrtxt {
+	width: 180px;
+	float: right;
+}
+
+.deanboxrtxt .deanboxrname {
+	font-size: 16px;
+	color: #333;
+	padding-bottom: 10px;
+}
+
+.deanboxrtxt .deanboxrname:hover {
+	text-decoration: none;
+	color: #57BAE8;
+}
+
+.deanboxrsummary {
+	font-size: 14px;
+	color: #666;
+	line-height: 22px;
+}
+
+.deanhot {
+	
+}
+
+.deanartice {
+	
+}
+
+.deanartice ul {
+	
+}
+
+.deanartice ul li {
+	background: #f7f7f7;
+}
+
+.deanarticec {
+	padding: 10px;
+}
+
+.deanarticecomment {
+	width: 56px;
+	height: 24px;
+	line-height: 24px;
+	position: absolute;
+	top: -26px;
+	right: -20px;
+	background: #57BAE8;
+}
+
+.deanarticecomment a {
+	float: right;
+	font-size: 14px;
+	color: #fff;
+	padding-right: 5px;
+	font-weight: 700;
+}
+
+.deanartice ul li .deanarticel {
+	float: left;
+	width: 235px;
+	overflow: hidden;
+}
+
+.deanartice ul li .deanarticel a {
+	display: block;
+	width: 235px;
+	height: 151px;
+	overflow: hidden;
+	border: 1px solid #f9f9f9;
+}
+
+.deanartice ul li .deanarticel a:hover {
+	border: 1px solid #fff;
+}
+
+.deanartice ul li .deanarticel img {
+	padding: 3px;
+	width: 230px;
+	height: 145px;
+	transition: all 1.2s;
+	-moz-transition: all 1.2s;
+	-webkit-transition: all 1.2s;
+	-o-transition: all 1.2s;
+}
+
+.deanartice ul li .deanarticel a:hover img {
+	transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-webkit-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+}
+
+.deanartice ul li .deanarticer {
+	float: right;
+	width: 500px;
+	position: relative;
+}
+
+.deanarticername {
+	
+}
+
+.deanarticername a {
+	font-size: 18px;
+	color: #636f76;
+	font-weight: bold;
+}
+
+.deanarticername a:hover {
+	color: #57BAE8;
+	text-decoration: none;
+}
+
+.deanarticersummary {
+	line-height: 22px;
+	padding: 10px 0;
+	color: #555;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.deanarticertag {
+	line-height: 30px;
+	color: #999;
+}
+
+.deanarticertag a {
+	color: #57BAE8;
+}
+
+.deanarticerforum {
+	float: left;
+}
+
+.deanarticerauthor {
+	float: right;
+}
+
+.deanw200 {
+	width: 200px;
+	float: left;
+	position: relative;
+}
+
+.deanw330 {
+	width: 330px;
+	float: left;
+	position: relative;
+}
+
+.deanw120 {
+	width: 120px;
+	float: left;
+	position: relative;
+}
+
+.deanw115 {
+	width: 115px;
+	float: left;
+	position: relative;
+}
+
+.deanw151 {
+	width: 15px;
+	height: 245px;
+	float: left;
+}
+
+.deanw152 {
+	width: 15px;
+	height: 115px;
+	float: left;
+}
+
+.deanpicname {
+	height: 30px;
+	display: block;
+	line-height: 30px;
+	overflow: hidden;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/black.png)
+		0 0 repeat;
+}
+
+.deanpic img {
+	transition: All 0.4s ease-in-out;
+	-webkit-transition: All 0.4s ease-in-out;
+	-moz-transition: All 0.4s ease-in-out;
+	-o-transition: All 0.4s ease-in-out;
+}
+
+.deanpic a:hover img {
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+}
+
+.deansubnav {
+	width: 310px;
+}
+
+.deansubnav ul {
+	
+}
+
+.deansubnav ul li {
+	width: 135px;
+	height: 135px;
+	overflow: hidden;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.deansubnav ul li a {
+	display: block;
+	width: 135px;
+	height: 135px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	transition: All 0.4s ease-in-out;
+	-webkit-transition: All 0.4s ease-in-out;
+	-moz-transition: All 0.4s ease-in-out;
+	-o-transition: All 0.4s ease-in-out;
+}
+
+.deansubnav ul li a span {
+	position: absolute;
+	left: 0px;
+	bottom: 15px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	width: 135px;
+}
+
+.deansubnav ul li.marr0 {
+	margin-right: 0;
+}
+
+.deansubnav ul li.marb0 {
+	margin-bottom: 0;
+}
+
+.deansubnav ul li.deansina a {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/sina.png)
+		center center no-repeat;
+}
+
+.deansubnav ul li.deantx a {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/tx.png)
+		center center no-repeat;
+}
+
+.deansubnav ul li.deanrss a {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/rss.png)
+		center center no-repeat;
+}
+
+.deansubnav ul li.deankefu a {
+	background: #ffc18a
+		url(https://img.useit.com.cn/temcdn/various_artists/images/mail.png)
+		center center no-repeat;
+}
+
+.deansubnav ul li a:hover {
+	transform: translate(0, -10px);
+	-webkit-transform: translate(0, -10px);
+	-moz-transform: translate(0, -10px);
+	-o-transform: translate(0, -10px);
+	-ms-transform: translate(0, -10px);
+	background-color: #ffc18a;
+	text-decoration: none;
+}
+
+.deantj {
+	width: 310px;
+}
+
+.deantj ul {
+	margin-top: 20px;
+}
+
+.deantj ul li {
+	border-bottom: 1px solid #e9e9e9;
+	border-top: 1px solid #fff;
+}
+
+.deantj ul li .deantjc {
+	padding: 10px;
+}
+
+.deantj ul li .deanhdcc {
+	
+}
+
+.deanhdcc .deanhdl {
+	float: left;
+	width: 70px;
+	height: 60px;
+}
+
+.deanhdcc .deanhdl img {
+	transition: All 0.4s ease-in-out;
+	-webkit-transition: All 0.4s ease-in-out;
+	-moz-transition: All 0.4s ease-in-out;
+	-o-transition: All 0.4s ease-in-out;
+}
+
+.deanhdcc .deanhdl a:hover img {
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+}
+
+.deanhdcc .deanhdr {
+	float: left;
+	width: 190px;
+}
+
+.deanhdcc .deanhdr a {
+	font-size: 14px;
+	color: #636f76;
+	font-weight: bold;
+}
+
+.deanhdcc .deanhdr a:hover {
+	color: #57BAE8;
+	text-decoration: none;
+}
+
+.deamjdcc .deanhdr {
+	float: left;
+}
+
+.deantj ul li .deanhdsummary {
+	padding: 10px 0;
+	line-height: 20px;
+	color: #555;
+}
+
+.deantj ul li .deanhdtags {
+	color: #999;
+	line-height: 30px;
+}
+
+.deantj ul li .deanhdtags a {
+	color: #57BAE8;
+	text-decoration: none;
+}
+
+.deanmore {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.deanmore a {
+	font-size: 14px;
+	color: #57BAE8;
+	font-weight: bold;
+}
+
+.deantitles {
+	background: none;
+	text-indent: 0;
+	height: 40px;
+	line-height: 40px;
+	width: 310px;
+	border-bottom: 3px solid #eee;
+	position: relative;
+}
+
+.deantitles ul {
+	position: absolute;
+	bottom: 0;
+	_bottom: -3px;
+	right: 0;
+	height: 40px;
+	line-height: 40px;
+}
+
+.deantitles ul li {
+	float: left;
+	font-size: 16px;
+	display: block;
+	margin-left: 15px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+}
+
+.deantitles ul li {
+	cursor: pointer;
+	color: #333;
+}
+
+.deantitles ul li.cur {
+	border-bottom: 3px solid #57BAE8;
+	color: #57BAE8;
+}
+
+.deantabc {
+	width: 310px;
+	overflow: hidden;
+}
+
+.deantabc ul li {
+	display: none;
+}
+
+.deantabc ul li dl {
+	
+}
+
+.deantabc ul li dl dd {
+	height: 45px;
+	line-height: 45px;
+}
+
+.deantabc ul li dl dd span {
+	float: left;
+	width: 23px;
+	height: 23px;
+	background: #e2e2e2;
+	margin-top: 13px;
+	margin-right: 10px;
+	line-height: 23px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.deantabc ul li dl dd span.span1,.deantabc ul li dl dd span.span2,.deantabc ul li dl dd span.span3
+	{
+	color: #fff;
+	background: #57BAE8;
+}
+
+.deantabc ul li dl dd a {
+	float: left;
+	font-size: 16px;
+	color: #636f76;
+}
+
+.deantabc ul li dl dd a:hover {
+	color: #308ddb;
+	text-decoration: none;
+}
+
+.deanmember {
+	
+}
+
+.deanmemberc {
+	width: 310px;
+}
+
+.deanmemberc ul li {
+	float: left;
+	width: 57px;
+	height: 100px;
+	text-align: center;
+	overflow: hidden;
+	margin-right: 20px;
+}
+
+.deanmemberc ul li img {
+	width: 57px;
+	height: 57px;
+	border-radius: 57px;
+	transition: All 0.4s ease-in-out;
+	-webkit-transition: All 0.4s ease-in-out;
+	-moz-transition: All 0.4s ease-in-out;
+	-o-transition: All 0.4s ease-in-out;
+}
+
+.deanmemberc ul li a:hover img {
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+}
+
+.deanuser {
+	height: 14px;
+	width: 57px;
+	overflow: hidden;
+	margin-top: 10px;
+}

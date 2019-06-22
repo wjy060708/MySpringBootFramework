@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysModulePageMapper">
+
+	<resultMap id="modulePageResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysModulePage">
+		<id column="PageID" property="pageId" jdbcType="VARCHAR" />
+		
+		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+		
+		<result column="ModuleID" property="moduleId" jdbcType="VARCHAR" />
+		
+		<result column="PageName" property="pageName" jdbcType="VARCHAR" />
+  		<result column="PageIcon" property="pageIcon" jdbcType="VARCHAR" />
+  		<result column="PageURL" property="pageURL" jdbcType="VARCHAR" />
+  		<result column="PageOrder" property="pageOrder" jdbcType="NUMERIC" />
+  		<result column="PageToken" property="pageToken" jdbcType="VARCHAR" />
+  		<result column="PageRemark" property="pageRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_MODULE_PAGE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		PageID = #{pageId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysModulePage">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			PageID,
+       	
+			ParentID,
+			
+			ModuleID,
+			
+			PageName,
+			PageIcon,
+			PageURL,
+			PageOrder,
+			PageToken,
+			PageRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{pageId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR} ,
+			
+			#{moduleId, jdbcType=VARCHAR} ,
+			
+			#{pageName, jdbcType=VARCHAR} ,
+			#{pageIcon, jdbcType=VARCHAR} ,
+			#{pageURL, jdbcType=VARCHAR} ,
+			#{pageOrder, jdbcType=NUMERIC} ,
+			#{pageToken, jdbcType=VARCHAR} ,
+			#{pageRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysModulePage">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ParentID = #{parentId, jdbcType=VARCHAR} ,
+			
+			PageName = #{pageName, jdbcType=VARCHAR} ,
+			PageIcon = #{pageIcon, jdbcType=VARCHAR} ,
+			PageURL = #{pageURL, jdbcType=VARCHAR} ,
+			PageOrder = #{pageOrder, jdbcType=NUMERIC} ,
+			PageToken = #{pageToken, jdbcType=VARCHAR} ,
+			PageRemark = #{pageRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where 
+			<include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modulePageResultMap">
+		select
+			p.PageID as PageID,
+       	
+			p.ParentID as ParentID,
+			
+			p.ModuleID as ModuleID,
+			
+			p.PageName as PageName,
+			p.PageIcon as PageIcon,
+			p.PageURL as PageURL,
+			p.PageOrder as PageOrder,
+			p.PageToken as PageToken,
+			p.PageRemark as PageRemark
+		from
+			SYS_MODULE_PAGE p
+		where
+			p.PageID = #{pageId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modulePageResultMap">
+		select
+			p.PageID as PageID,
+       	
+			p.ParentID as ParentID,
+			
+			p.ModuleID as ModuleID,
+			
+			p.PageName as PageName,
+			p.PageIcon as PageIcon,
+			p.PageURL as PageURL,
+			p.PageOrder as PageOrder,
+			p.PageToken as PageToken,
+			p.PageRemark as PageRemark,
+			
+			p.CreateTime as CreateTime,
+			p.UpdateTime as UpdateTime
+		from
+			SYS_MODULE_PAGE p
+		where
+			p.PageFlag = '0'
+			
+		<if test="moduleId != null and moduleId != ''"> 
+			and p.ModuleID = #{moduleId}
+		</if>
+		<if test="parentId != null and parentId != ''"> 
+			and p.ParentID = #{parentId}
+		</if>
+		
+		<if test="pageName != null and pageName != ''"> 
+			and p.PageName like "%"#{pageName}"%"
+		</if>
+	</select>
+	
+	<select id="countByParent" parameterType="String" resultType="Integer">
+		select
+			count(p.PageID)
+		from
+			<include refid="tableNameSql"/> p
+		where
+			p.ParentID = #{parentId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+	</delete>
+</mapper>

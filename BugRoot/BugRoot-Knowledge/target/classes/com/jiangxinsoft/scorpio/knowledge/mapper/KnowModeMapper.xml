@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowModeMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowMode">
+		
+		<id column="ModeID" property="modeId" jdbcType="VARCHAR" />
+		
+		<result column="ResourceID" property="resourceId" jdbcType="VARCHAR" />
+		
+		<result column="TypeID" property="typeId" jdbcType="VARCHAR" />
+		<result column="TypeName" property="typeName" jdbcType="VARCHAR" />
+		<result column="KeyWords" property="keyWords" jdbcType="VARCHAR" />
+		
+		<result column="ModeRemark" property="modeRemark" jdbcType="VARCHAR" />
+	   
+  		
+  		<result column="IsEdit" property="isEdit" jdbcType="VARCHAR" />
+  		<result column="IsRead" property="isRead" jdbcType="VARCHAR" />
+		
+		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+
+  		<result column="Author" property="author" jdbcType="VARCHAR" />
+        <result column="CurrentUser" property="currentUser" jdbcType="VARCHAR" />
+        <result column="ImgeUrl" property="imgeUrl" jdbcType="VARCHAR" /> 
+        
+        <result column="GreatNum" property="greatNum" jdbcType="INTEGER" />
+        <result column="BadNum" property="badNum" jdbcType="INTEGER" />
+        <result column="RemarkNum" property="remarkNum" jdbcType="INTEGER" />
+        <result column="PrivateNum" property="privateNum" jdbcType="INTEGER" />
+        <result column="VisitNum" property="visitNum" jdbcType="INTEGER" /> 
+        <result column="Total" property="total" jdbcType="INTEGER" />
+        <result column="UserIcon" property="userIcon" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_MODE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		ModeID = #{modeId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowMode">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ModeID,
+			
+			TypeID,
+			
+			ResourceID,
+			
+			ModeName,
+			ModeRemark,
+			KeyWords,
+			
+			IsEdit,
+			IsRead,
+			
+			Author,
+			CurrentUser,
+			
+			CreateTime,
+			UpdateTime,
+			ImgeUrl,
+			
+			GreatNum,
+			BadNum,
+			RemarkNum,
+			PrivateNum,
+			VisitNum
+			
+		)
+		values
+		(
+			#{modeId, jdbcType=VARCHAR} ,
+				
+			#{typeId, jdbcType=VARCHAR} ,
+			
+			#{resourceId, jdbcType=VARCHAR} ,
+			
+			#{modeName, jdbcType=VARCHAR} ,
+			#{modeRemark, jdbcType=VARCHAR} ,
+			#{keyWords, jdbcType=VARCHAR} ,
+			
+			#{isEdit, jdbcType=VARCHAR} ,
+			#{isRead, jdbcType=VARCHAR} ,
+			
+			#{author, jdbcType=VARCHAR} ,
+			#{currentUser, jdbcType=VARCHAR} ,
+	
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP},
+			
+			#{imgeUrl, jdbcType=VARCHAR} ,
+			#{greatNum, jdbcType=INTEGER} ,
+			
+			#{badNum, jdbcType=INTEGER} ,
+			#{remarkNum, jdbcType=INTEGER} ,
+	
+			#{privateNum, jdbcType=INTEGER} ,
+			#{visitNum, jdbcType=INTEGER}
+			
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowMode">
+		update
+			<include refid="tableNameSql"/>
+		set
+			<if test="modeName != null and modeName != ''">
+				ModeName = #{modeName, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="typeId != null and typeId != ''">
+				TypeID = #{typeId, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="resourceId != null and resourceId != ''">
+				ResourceID = #{resourceId, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="modeRemark != null and modeRemark != ''">
+				ModeRemark = #{modeRemark, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="isEdit != null">
+				IsEdit = #{isEdit, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="isRead != null">
+				IsRead = #{isRead, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="author != null and author != ''">
+				Author = #{author, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="modeRemark != null and modeRemark != ''">
+				ModeRemark = #{modeRemark, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="imgeUrl != null and imgeUrl != ''">
+				ImgeUrl = #{imgeUrl, jdbcType=VARCHAR} ,
+			</if>
+			
+			<if test="greatNum != null and greatNum != ''">
+				GreatNum = #{greatNum, jdbcType=INTEGER} ,
+			</if>
+			
+			<if test="badNum != null and badNum != ''">
+				BadNum = #{badNum, jdbcType=INTEGER} ,
+			</if>
+			
+			<if test="privateNum != null and privateNum != ''">
+				PrivateNum = #{privateNum, jdbcType=INTEGER} ,
+			</if>
+			
+			<if test="visitNum != null and visitNum != ''">
+				VisitNum = #{visitNum, jdbcType=INTEGER} ,
+			</if>
+			
+			<if test="remarkNum != null and remarkNum != ''">
+				RemarkNum = #{remarkNum, jdbcType=INTEGER} ,
+			</if>
+
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			kc.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			km.KeyWords as KeyWords,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        km.ImgeUrl as ImgeUrl,
+			
+			km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+			
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			km.ModeID = #{modeId}
+	</select>
+	
+	<select id="selectByAuthor" parameterType="String" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			kc.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			km.KeyWords as KeyWords,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        km.ImgeUrl as ImgeUrl,
+			
+			km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+			
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			km.Author = #{author}
+	</select>
+	
+	 <select id="selectByCurDate" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			kc.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        km.ImgeUrl as ImgeUrl,
+			
+			km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+			
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			date (km.CreateTime) = curdate()
+	</select>
+	
+	<select id="selectByPreDate" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			kc.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        km.ImgeUrl as ImgeUrl,
+			
+			km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+			
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			date (km.CreateTime) = date_sub(curdate(),interval 1 day)
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			km.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			km.KeyWords as KeyWords,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        
+	        km.ImgeUrl as ImgeUrl,
+	        km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+       		
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			1 = 1 
+			
+	    <if test="modeId != null and modeId != ''"> 
+			and km.ModeID = #{modeId}
+		</if> 
+		
+		<if test="typeId != null and typeId != ''"> 
+			and km.TypeID = #{typeId}
+		</if> 
+			
+	    <if test="modeName != null and modeName != ''"> 
+			and km.ModeName like "%"#{modeName}"%"
+		</if>  
+		
+		 <if test="author != null and author != ''"> 
+			and km.Author like "%"#{author}"%"
+		</if>  
+		
+		<if test="keyWords != null and keyWords != ''"> 
+			and km.KeyWords like "%"#{keyWords}"%"
+		</if>  
+	</select>
+	
+	<select id="selectByUser" parameterType="hashMap" resultMap="modelResultMap">
+		select 
+			km.Author as Author,
+			count(*) as Total,
+			su.UserIcon as UserIcon
+		from know_mode km join sys_user su on km.Author = su.TrueName GROUP by Author limit 10
+	</select>
+	
+	
+
+
+	<select id="selectNeed" parameterType="String" resultMap="modelResultMap">
+		select
+			km.ModeID as ModeID,
+			km.ModeName as ModeName,
+			
+			km.TypeID as TypeID,
+			kc.TypeName as TypeName,
+			
+			km.ModeRemark as ModeRemark,
+			km.KeyWords as KeyWords,
+			
+			km.IsEdit as IsEdit,
+			km.IsRead as IsRead,
+	        
+	        km.CreateTime as  CreateTime,
+	        km.UpdateTime as  UpdateTime,
+	        km.Author as Author,
+	        km.CurrentUser as CurrentUser,
+	        
+	        km.ImgeUrl as ImgeUrl,
+	        km.GreatNum as GreatNum,
+			km.BadNum as BadNum,
+			km.RemarkNum as RemarkNum,
+			km.PrivateNum as PrivateNum,
+			km.VisitNum as VisitNum
+       		
+		from
+			KNOW_MODE km left join KNOW_TYPE kc on km.TypeID = kc.TypeID
+		where
+			kc.ParentID = #{parentId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where ModeID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+</mapper>

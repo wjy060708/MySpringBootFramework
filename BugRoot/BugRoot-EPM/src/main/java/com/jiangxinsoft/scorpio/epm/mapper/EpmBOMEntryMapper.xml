@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmBOMEntryMapper">
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.model.EpmBOMEntry">
+		<id column="EntryID" property="entryId" jdbcType="VARCHAR" />
+		
+		<result column="TemplateID" property="templateId" jdbcType="VARCHAR" />
+		<result column="TemplateName" property="templateName" jdbcType="VARCHAR" />
+  		
+  		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+  		
+  		<result column="EntryName" property="entryName" jdbcType="VARCHAR" />
+		<result column="EntryRemark" property="entryRemark" jdbcType="VARCHAR" />
+			
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_BOM_ENTRY
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		EntryID = #{entryId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmBOMEntry">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			EntryID,
+			
+			TemplateID,
+			
+			ParentID,
+			
+			EntryName,
+			EntryRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{entryId, jdbcType=VARCHAR} ,
+			
+			#{templateId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR} ,
+			
+			#{entryName, jdbcType=VARCHAR} ,
+			#{entryRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmBOMEntry">
+		update
+			<include refid="tableNameSql"/>
+		set
+			TemplateID = #{templateId, jdbcType=VARCHAR} ,
+			
+			ParentID = #{parentId, jdbcType=VARCHAR} ,	
+			
+			EntryName = #{entryName, jdbcType=VARCHAR} ,
+			EntryRemark = #{entryRemark, jdbcType=VARCHAR} ,			
+		
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			pg.EntryID as EntryID,
+			
+			pg.TemplateID as TemplateID,
+			
+			pg.ParentID as ParentID,
+       	
+			pg.EntryName as EntryName,
+			pg.EntryRemark as EntryRemark
+		from
+			EPM_BOM_ENTRY pg
+		where
+			pg.EntryID = #{entryId}
+	</select>
+	
+	<select id="countByParent" parameterType="String" resultType="Integer">
+		select
+			count(p.EntryID)
+		from
+			<include refid="tableNameSql"/> p
+		where
+			p.ParentID = #{parentId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			pg.EntryID as EntryID,
+       	
+			pg.TemplateID as TemplateID,
+			
+			pg.ParentID as ParentID,
+       	
+			pg.EntryName as EntryName,
+			pg.EntryRemark as EntryRemark,
+			
+			pg.CreateTime as CreateTime,
+			pg.UpdateTime as UpdateTime
+		from
+			EPM_BOM_ENTRY pg
+		where
+			1 = 1		
+		<if test="entryName != null and entryName != ''"> 
+			and pg.EntryName like "%"#{entryName}"%"
+		</if>
+		
+		<if test="templateId != null and templateId != ''"> 
+			and pg.TemplateID = #{templateId}
+		</if>
+	
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where EntryID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

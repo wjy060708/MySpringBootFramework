@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.pbm.mapper.PbmBugInfoMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.pbm.model.PbmBugInfo">
+		<id column="BugID" property="bugId" jdbcType="VARCHAR" />
+		
+		<result column="BugName" property="bugName" jdbcType="VARCHAR" />
+  		<result column="BugRemark" property="bugRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		PBM_BUG_INFO 
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		BugID = #{bugId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.pbm.model.PbmBugInfo">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			BugID,
+			
+			BugName,
+			BugRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{bugId, jdbcType=VARCHAR} ,
+			
+			#{bugName, jdbcType=VARCHAR} ,
+			#{bugRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.pbm.model.PbmBugInfo">
+		update
+			<include refid="tableNameSql"/>
+		set
+			BugName = #{bugName, jdbcType=VARCHAR} ,
+			BugRemark = #{bugRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			m.BugID as BugID,
+       	
+			m.BugName as BugName,
+			m.BugRemark as BugRemark
+		from
+			PBM_BUG_INFO m
+		where
+			m.BugID = #{bugId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			m.BugID as BugID,
+       	
+			m.BugName as BugName,
+			m.BugRemark as BugRemark,
+			
+			m.CreateTime as CreateTime,
+			m.UpdateTime as UpdateTime
+		from
+			PBM_BUG_INFO  m
+		where
+			1 = 1
+			
+		<if test="bugName != null and bugName != ''"> 
+			and m.BugName like "%"#{bugName}"%"
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where BugID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

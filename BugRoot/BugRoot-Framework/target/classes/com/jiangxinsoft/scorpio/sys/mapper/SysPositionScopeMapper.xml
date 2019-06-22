@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysPositionScopeMapper">
+	<resultMap id="positionScopeResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysPositionScope">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		
+		<result column="PositionID" property="positionId" jdbcType="VARCHAR" />
+		<result column="PositionName" property="positionName" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentRemark" property="departmentRemark" jdbcType="VARCHAR" />
+	</resultMap>
+
+
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysPositionScope">
+		insert into SYS_POSITION_SCOPE
+		(
+			ID,
+			
+			PositionID,
+			DepartmentID,
+			
+			CreateTime
+		)
+		values
+		(
+			#{id, jdbcType=VARCHAR} ,
+			
+			#{positionId, jdbcType=VARCHAR} ,
+			#{departmentId, jdbcType=VARCHAR},
+			
+			#{createTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<delete id="deleteByDepartmentId" parameterType="String">
+		delete 
+			from SYS_POSITION_SCOPE 
+		where 
+			DepartmentID = #{departmentId}
+	</delete>
+	
+	<delete id="deleteByPositionAndDepartmentId" parameterType="hashMap">
+		delete 
+			from SYS_POSITION_SCOPE 
+		where 
+			PositionID = #{positionId}
+		and
+			DepartmentID = #{departmentId}
+	</delete>
+	
+	<select id="select" parameterType="hashMap" resultMap="positionScopeResultMap">
+		select
+			ps.ID as ID,
+			
+			ps.PositionID as PositionID,
+			p.PositionName as PositionName,
+			
+			ps.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			o.DepartmentRemark as DepartmentRemark
+		from 
+			SYS_POSITION_SCOPE ps, SYS_ORGANIZATION o, SYS_POSITION p
+		where
+			ps.DepartmentID = o.DepartmentID
+		and
+			ps.PositionID = p.PositionID
+			
+		<if test="positionId != null and positionId != ''">
+			and ps.PositionID = #{positionId}
+		</if>
+		order by
+			ps.CreateTime Desc
+	</select>
+	
+</mapper>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowModeContentMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowModeContent">
+		
+		<id column="ModeContentID" property="modeContentId" jdbcType="VARCHAR" />
+		<result column="ModeContentName" property="modeContentName" jdbcType="VARCHAR" />
+		
+		<result column="ModeID" property="modeId" jdbcType="VARCHAR" />
+  		<result column="ModeName" property="modeName" jdbcType="VARCHAR" />
+  		
+  		<result column="RuleID" property="ruleId" jdbcType="VARCHAR" />
+  		<result column="ResourceID" property="resourceId" jdbcType="VARCHAR" />
+  		
+  		<result column="Reason" property="reason" jdbcType="VARCHAR" />
+  		<result column="Consequence" property="consequence" jdbcType="VARCHAR" />
+  		<result column="Prevention" property="prevention" jdbcType="VARCHAR" />
+  		
+  		<result column="Stage" property="stage" jdbcType="VARCHAR" />
+		
+  		<result column="Author" property="author" jdbcType="VARCHAR" />
+  		
+  		<result column="TagKey" property="tagKey" jdbcType="VARCHAR" />
+		
+  		<result column="Summary" property="summary" jdbcType="VARCHAR" />
+
+  		<result column="VisitNum" property="visitNum" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+  		<result column="LastVisitTime" property="lastVisitTime" jdbcType="TIMESTAMP"/>
+  		
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_MODE_CONTENT
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		ModeContentID = #{modeContentID}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeContent">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ModeContentID,
+			ModeContentName,
+			ModeID,
+			RuleID,
+			ResourceID,
+			Reason,
+			Consequence,
+			Prevention,
+			Stage,
+			Author,
+			TagKey,
+			Summary,
+			VisitNum,
+			CreateTime,
+			UpdateTime,
+			LastVisitTime
+		)
+		values
+		(
+			#{modeContentId, jdbcType=VARCHAR} ,
+			#{modeContentName, jdbcType=VARCHAR} ,
+			
+			#{modeId, jdbcType=VARCHAR},
+			#{ruleId, jdbcType=VARCHAR} ,
+			#{resourceId, jdbcType=VARCHAR} ,
+			
+			#{reason, jdbcType=VARCHAR} ,
+			#{consequence, jdbcType=VARCHAR} ,
+			#{prevention, jdbcType=VARCHAR} ,
+			
+			#{stage, jdbcType=VARCHAR} ,
+			#{author, jdbcType=VARCHAR} ,
+			#{tagKey, jdbcType=VARCHAR} ,
+			#{summary, jdbcType=VARCHAR} ,
+			#{visitNum, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP},
+			#{lastVisitTime, jdbcType=TIMESTAMP} 
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModeContent">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ModeContentName = #{modeContentName, jdbcType=VARCHAR},
+			ModeID = #{modeID, jdbcType=INTEGER},
+			RuleID = #{ruleID, jdbcType=INTEGER},
+			ResourceId = #{resourceId, jdbcType=INTEGER},
+			Consequence = #{consequence, jdbcType=INTEGER},
+			Prevention = #{prevention, jdbcType=INTEGER},
+			Stage = #{stage, jdbcType=INTEGER},
+			Author = #{author, jdbcType=INTEGER},
+			TagKey = #{tagKey, jdbcType=INTEGER},
+			Summary = #{summary, jdbcType=INTEGER},
+			VisitNum = #{visitNum, jdbcType=INTEGER},
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			LastVisitTime = #{lastVisitTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			kmc.ModeContentID as ModeContentID,
+			kmc.ModeContentName as ModeContentName,
+			
+			kmc.RuleID as RuleID,
+			kmc.ResourceID as ResourceID,
+			
+			kmc.Reason as Reason,
+			kmc.Consequence as Consequence,
+			kmc.Prevention as Prevention,
+			kmc.Stage as Stage,
+			kmc.TagKey as TagKey,
+			kmc.Summary as Summary,
+			kmc.VisitNum as VisitNum,
+			
+	        kmc.CreateTime as  CreateTime,
+	        kmc.UpdateTime as  UpdateTime,
+	        kmc.LastVisitTime as  LastVisitTime
+	   
+		from	
+			KNOW_MODE_CONTENT kmc 			
+		where
+			kmc.ModeContentID = #{modeContentID}
+	</select>
+	
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+		    kmc.ModeContentID as ModeContentID,
+			kmc.ModeContentName as ModeContentName,
+			
+			kmc.RuleID as RuleID,
+			kmc.ResourceID as ResourceID,
+			
+			kmc.Reason as Reason,
+			kmc.Consequence as Consequence,
+			kmc.Prevention as Prevention,
+			kmc.Prevention as Prevention,
+			kmc.Stage as Stage,
+			kmc.TagKey as TagKey,
+			kmc.Summary as Summary,
+			kmc.VisitNum as VisitNum,
+			
+	        kmc.CreateTime as  CreateTime,
+	        kmc.UpdateTime as  UpdateTime,
+	        kmc.LastVisitTime as  LastVisitTime
+		from
+			KNOW_MODE_CONTENT kmc 
+		where
+			1 = 1 
+			
+	    <if test="modeId != null and modeId != ''"> 
+			and kmc.ModeID = #{modeId}
+		</if> 
+			
+	    <if test="modeContentName != null and modeContentName != ''"> 
+			and kmc.ModeContentName like "%"#{modeContentName}"%"
+		</if>  
+		
+		<if test="tagKey != null and tagKey != ''"> 
+			and kmc.TagKey like "%"#{tagKey}"%"
+			
+		</if>  
+		
+		<if test="summary != null and summary != ''"> 
+			and kmc.Summary like "%"#{summary}"%"
+		</if> 
+		
+		<if test="visitNum != null and visitNum != ''"> 
+			and kmc.VisitNum like "%"#{visitNum}"%"
+		</if>   
+		
+		<if test="lastVisitTime != null and lastVisitTime != ''"> 
+			and kmc.LastVisitTime like "%"#{lastVisitTime}"%"
+		</if>   
+		
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where ModeContentID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

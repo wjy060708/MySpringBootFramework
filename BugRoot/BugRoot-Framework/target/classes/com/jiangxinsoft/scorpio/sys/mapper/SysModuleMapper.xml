@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysModuleMapper">
+
+	<resultMap id="moduleResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysModule">
+		<id column="ModuleID" property="moduleId" jdbcType="VARCHAR" />
+		
+		<result column="ModuleName" property="moduleName" jdbcType="VARCHAR" />
+  		<result column="ModuleIcon" property="moduleIcon" jdbcType="VARCHAR" />
+  		<result column="ModuleOrder" property="moduleOrder" jdbcType="NUMERIC" />
+  		<result column="ModuleRemark" property="moduleRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_MODULE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		ModuleID = #{moduleId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysModule">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ModuleID,
+			
+			ModuleName,
+			ModuleIcon,
+			ModuleOrder,
+			ModuleRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{moduleId, jdbcType=VARCHAR} ,
+			
+			#{moduleName, jdbcType=VARCHAR} ,
+			#{moduleIcon, jdbcType=VARCHAR} ,
+			#{moduleOrder, jdbcType=NUMERIC} ,
+			#{moduleRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysModule">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ModuleName = #{moduleName, jdbcType=VARCHAR} ,
+			ModuleIcon = #{moduleIcon, jdbcType=VARCHAR} ,
+			ModuleOrder = #{moduleOrder, jdbcType=NUMERIC} ,
+			ModuleRemark = #{moduleRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="moduleResultMap">
+		select
+			m.ModuleID as ModuleID,
+       	
+			m.ModuleName as ModuleName,
+			m.ModuleIcon as ModuleIcon,
+			m.ModuleOrder as ModuleOrder,
+			m.ModuleRemark as ModuleRemark
+		from
+			SYS_MODULE m
+		where
+			m.ModuleID = #{moduleId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="moduleResultMap">
+		select
+			m.ModuleID as ModuleID,
+       	
+			m.ModuleName as ModuleName,
+			m.ModuleIcon as ModuleIcon,
+			m.ModuleOrder as ModuleOrder,
+			m.ModuleRemark as ModuleRemark,
+			
+			m.CreateTime as CreateTime,
+			m.UpdateTime as UpdateTime
+		from
+			SYS_MODULE m
+		where
+			m.ModuleFlag = '0'
+			
+		<if test="moduleName != null and moduleName != ''"> 
+			and m.ModuleName like "%"#{moduleName}"%"
+		</if>
+	</select>
+	
+	<select id="selectByLoginUserId" parameterType="String" resultMap="moduleResultMap">
+		select
+			distinct(m.ModuleID) as ModuleID,
+		  
+			m.ModuleName as ModuleName,
+			m.ModuleIcon as ModuleIcon,
+			m.ModuleOrder as ModuleOrder,
+			m.ModuleRemark as ModuleRemark
+		from
+			SYS_MODULE m, SYS_MODULE_PAGE p, (
+			select
+				rp.PageID as PageID
+			from 
+				SYS_ROLE_PAGE rp, (
+				select
+					rm.RoleID as RoleID
+				from
+					SYS_ROLE_MEMBER rm
+				where
+					rm.UserID = #{userId}
+			) ru
+			where 
+				rp.RoleID = ru.RoleID
+		) up
+		where
+			m.ModuleID = p.ModuleID
+		and
+			p.PageID = up.PageID
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where ModuleID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

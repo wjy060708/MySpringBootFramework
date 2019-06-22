@@ -1,0 +1,995 @@
+#pt .y {
+	width: 550px;
+	height: 29px;
+	overflow: hidden;
+}
+
+#chart {
+	margin-bottom: 5px;
+}
+
+.chart {
+	padding-left: 22px;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/chart.png)
+		no-repeat 0 50%;
+	color: #bbb;
+}
+
+.chart em {
+	color: #444;
+}
+
+#an {
+	margin-bottom: 5px;
+}
+
+#an dt {
+	display: none;
+}
+
+#an li {
+	float: right;
+	clear: both;
+	width: 526px;
+	text-align: right;
+}
+
+#an li span {
+	float: left;
+	width: 450px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#an li em {
+	float: left;
+	width: 75px;
+	color: #bbb;
+}
+
+#anc,#an li {
+	height: 29px;
+	overflow: hidden;
+}
+
+#anc i {
+	font-style: italic;
+}
+
+.oll li {
+	float: left;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 19.9%;
+	height: 24px;
+	line-height: 24px;
+}
+
+.oll img {
+	vertical-align: middle;
+}
+
+.heat {
+	width: 370px;
+}
+
+.heatl {
+	padding-left: 15px;
+	margin-left: 385px;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/vline.png)
+		repeat-y 0 0;
+}
+
+#category_grid {
+	padding: 0;
+	border-top: 1px solid #E1E1E1;
+}
+
+#category_grid table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+#category_grid td {
+	width: 25%;
+}
+
+.category_l1,.category_l2,.category_l3,.category_l4 {
+	line-height: 25px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.category_l1 {
+	line-height: normal;
+}
+
+.category_l1,.category_l2,.category_l3 {
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/category_lbg.png)
+		no-repeat right center;
+}
+
+.ie6 .category_l4 {
+	margin-right: -3px;
+}
+
+.slidebox_grid {
+	position: relative;
+	margin: 10px;
+	border: 1px #ccc solid;
+}
+
+#category_grid h4 {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 10px;
+	font-size: 12px;
+	cursor: pointer;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/tb.png)
+		repeat-x;
+	position: relative;
+}
+
+.category_newlist {
+	padding: 10px;
+}
+
+.category_newlist li {
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/dot.gif)
+		no-repeat left center;
+	height: 21px;
+	line-height: 21px;
+	overflow: hidden;
+	padding-left: 10px;
+}
+
+#category_grid h4 span {
+	background: #CDCDCD;
+	width: 1px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#category_grid h4 span.tit_newimg {
+	background: #FFF;
+}
+
+#category_grid .newimgbox:hover h4 span,#category_grid .subjectbox:hover h4 span,#category_grid .replaybox:hover h4 span,#category_grid .hottiebox:hover h4 span,#category_grid .goodtiebox:hover h4 span
+	{
+	width: 6px;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/grid.png)
+		no-repeat 0 0;
+	transition: width 0.2s ease 0s;
+	overflow: hidden;
+}
+
+#category_grid .newimgbox:hover h4 span.tit_newimg {
+	background-position: 0 -30px;
+}
+
+#category_grid .subjectbox:hover h4 span.tit_subject {
+	background-position: 0 0;
+}
+
+#category_grid .replaybox:hover h4 span.tit_replay {
+	background-position: 0 -30px;
+}
+
+#category_grid .hottiebox:hover h4 span.tit_hottie {
+	background-position: 0 -60px;
+}
+
+#category_grid .goodtiebox:hover h4 span.tit_goodtie {
+	background-position: 0 -90px;
+}
+
+.fl {
+	
+}
+
+.fl_tb {
+	width: 100%;
+}
+
+.fl_tb td {
+	padding: 10px 0;
+}
+
+.fl_icn {
+	padding-right: 10px !important;
+	width: 31px;
+}
+
+.fl_by {
+	width: 220px;
+}
+
+.fl_by div {
+	margin-left: 10px;
+	width: 210px;
+	padding-left: 8px;
+	word-break: keep-all;
+	word-wrap: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.fl_by div .xi2 {
+	zoom: 1;
+}
+
+.fl_by cite {
+	display: block;
+}
+
+.fl_i {
+	width: 150px;
+	text-align: right;
+}
+
+.fl_i em {
+	display: block;
+	width: 5em;
+}
+
+.fl .i_z {
+	margin-right: 8px;
+	padding-right: 8px;
+	border-right: 1px solid #C2D5E3;
+}
+
+.fl_icn_g {
+	float: left;
+	width: 31px;
+}
+
+.fl_g {
+	vertical-align: top;
+}
+
+.fl_g dl {
+	margin-left: 10px;
+	padding-left: 10px;
+}
+
+.fl_g dt {
+	font-weight: 700;
+}
+
+.fl_row td {
+	border-top: 1px dashed #E1E1E1;
+}
+
+.flt {
+	
+}
+
+.flt .flc {
+	width: 294px;
+}
+
+.gcop {
+	margin-right: 15px;
+	clear: left;
+}
+
+.ghfl dt,.flt dt {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.ghfl dt span,.flt dt span,.flt dd span {
+	font-size: 12px;
+	font-weight: 200;
+	color: #bbb;
+}
+
+.ghfl dd,.flt dd {
+	line-height: 1.8em;
+}
+
+#fjump_menu {
+	overflow-x: hidden;
+	max-height: 600px;
+}
+
+#fjump_menu dl {
+	width: 200px;
+}
+
+#fjump_menu dt {
+	font-weight: 700;
+}
+
+#fjump_menu dd {
+	text-indent: 1em;
+}
+
+#fjump_menu li.a a {
+	background-color: #E5EDF2;
+}
+
+.nvhm {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/home.png)
+		no-repeat 0 7px;
+	*margin-top: 7px;
+	_margin-top: 7px;
+}
+
+#pt .z em {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/embg.png)
+		no-repeat 3px 7px;
+}
+
+.ie8 #pt .z {
+	line-height: 35px;
+}
+
+.ie8 {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/embg.png)
+		no-repeat 3px 0px;
+}
+
+.ie8 .nvhm,.ie9 .nvhm,.ie10 .nvhm {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/home.png)
+		no-repeat 0 8px;
+}
+
+.chart {
+	padding-left: 32px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/chart.png)
+		no-repeat 0 50%;
+	color: #666;
+}
+
+#pt {
+	clear: both;
+}
+
+.pgs {
+	text-align: center;
+	font-size: 14px;
+}
+
+.pg a {
+	border: 0;
+	background: #e9e9e9;
+	color: #333333;
+	padding: 0 0;
+	width: 25px;
+	height: 27px;
+	line-height: 27px;
+}
+
+.pg a:hover {
+	background: #57BAE8;
+	color: #fff;
+}
+
+.pg strong {
+	background: #57BAE8;
+	color: #fff;
+	border: 0;
+	padding: 0 0;
+	width: 25px;
+	height: 27px;
+	line-height: 27px;
+}
+
+.pg a.prev {
+	background: #e9e9e9
+		url(https://img.useit.com.cn/temcdn/various_artists/images/arw_l.gif)
+		5px 5px no-repeat;
+}
+
+.pg a.nxt {
+	background: #e9e9e9
+		url(https://img.useit.com.cn/temcdn/various_artists/images/arw_r.gif)
+		5px 5px no-repeat;
+	width: 70px;
+	padding-right: 0;
+	text-indent: 10px;
+}
+
+.pg a.nxt:hover {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/arw_r.gif)
+		5px 5px no-repeat;;
+}
+
+.pg a.prev:hover {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/arw_l.gif)
+		5px 5px no-repeat;
+}
+
+.pg label {
+	border: 1px solid #f6f6f6;
+}
+
+.mn {
+	margin-top: 10px;
+}
+
+.deanwp {
+	width: 1000px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.deanforumhdp {
+	float: left;
+	width: 320px;
+	height: 320px;
+}
+
+.deanforumtab {
+	float: right;
+	width: 780px;
+	height: 320px;
+}
+
+.deantabname {
+	margin-left: 15px;
+	margin-bottom: 5px;
+}
+
+.deantabname li {
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 10px;
+	cursor: pointer;
+	padding: 0 10px;
+	height: 30px;
+	background: #ECECEC;
+	display: block;
+	color: #333;
+	font-family: microsoft yahei;
+	font-size: 15px;
+}
+
+.deantabname li.cur {
+	background: #57BAE8;
+	color: #fff;
+}
+
+.deantabcontent {
+	border: 1px solid #f6f6f6;
+	height: 263px;
+	width: 678px;
+	overflow: hidden;
+	background: #fff;
+}
+
+.deantabcontent li {
+	display: none;
+	padding: 15px;
+	list-style: none;
+}
+
+.ie6 .deantabcontent li {
+	padding-top: 8px;
+}
+
+.ie7 .deantabcontent li {
+	padding-top: 8px;
+}
+
+.ie8 .deantabcontent li {
+	padding-top: 8px;
+}
+
+.deantabcontent li dl {
+	display: block;
+}
+
+.deantabcontent li dl dd {
+	height: 30px;
+	line-height: 30px;
+}
+
+.deanlistfirst {
+	margin-bottom: 10px;
+}
+
+.deanlistfirst .deanlistfirstl {
+	float: left;
+	width: 150px;
+	height: 80px;
+}
+
+.deanlistfirstr {
+	float: left;
+	width: 480px;
+}
+
+.deanlistfirstr .deanlistfirstname {
+	
+}
+
+.deanlistfirstname a {
+	font-size: 16px;
+	line-height: 30px;
+	font-family: microsoft yahei;
+}
+
+.deanlistfirstr .deanlistsummary {
+	color: #666;
+	font-size: 12px;
+	line-height: 22px;
+}
+
+.deantabcontent li dl dd span {
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin-top: 8px;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 16px;
+	float: left;
+	color: #333;
+	background: #ECECEC;
+}
+
+.deantabcontent li dl dd span.span1,.deantabcontent li dl dd span.span2,.deantabcontent li dl dd span.span3
+	{
+	background: #57BAE8;
+	color: #fff;
+}
+
+.deantabcontent li dl dd a {
+	float: left;
+	font-size: 14px;
+	font-family: microsoft yahei;
+}
+
+.deantabcontent li dl dd a:hover {
+	color: #57BAE8;
+	text-decoration: none;
+}
+
+.deantabcontent li dl dd b {
+	float: right;
+}
+
+.deantabcontent li dl dd b a {
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+}
+
+.bm {
+	border: 0;
+}
+
+.fl .bm {
+	border: 0;
+}
+
+.deanbmw {
+	border: 1px solid #f6f6f6 !important;
+	margin-bottom: 20px !important;
+}
+
+#online,.lk {
+	border: 1px solid #f6f6f6 !important;
+}
+
+.fl_row td {
+	border-top: 1px dashed #f6f6f6 !important;
+}
+
+.bbda {
+	border-bottom: 1px dashed #f6f6f6 !important;
+}
+
+.bm_h,.tl th,.tl td,.tl .th {
+	border-bottom: #eee 1px solid;
+}
+
+#newspecial img {
+	display: none;
+}
+
+#autopbn {
+	border: 1px solid #f6f6f6;
+}
+
+#newspecial,#newspecialtmp {
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-family: microsoft yahei;
+	font-weight: normal;
+	background: #57BAE8;
+	text-decoration: none;
+}
+
+#post_replytmp,#post_reply {
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-family: microsoft yahei;
+	font-weight: normal;
+	background: #FFC18A;
+	text-decoration: none;
+}
+
+.pls {
+	background: #f2f2f2;
+	border-right: 1px solid #f1f1f1;
+}
+
+.ad .pls {
+	background: #f9f9f9;
+}
+
+.ad .plc {
+	background: #f9f9f9;
+}
+
+.fl .bm_h,.bm_h {
+	border: 0;
+	background: #EDF2F8;
+	height: 40px;
+	line-height: 40px;
+}
+
+.fl .bm_h h2 a {
+	font-size: 20px;
+	font-family: microsoft yahei;
+	font-weight: normal;
+	color: #57BAE8;
+}
+
+#thread_types {
+	border: 0;
+}
+
+#thread_types li {
+	border: 0;
+	background: #DAF19D;
+	margin-right: 10px;
+	padding: 0;
+}
+
+#thread_types li.a {
+	background: #FFC5C5;
+}
+
+.ttp a {
+	border: 0;
+	background: none;
+	height: 30px;
+	line-height: 30px;
+	padding: 0;
+	padding: 0 10px;
+}
+
+.ttp .a a {
+	border: 0;
+	background: none;
+}
+
+.ttp a:hover,.ttp .a a:hover {
+	background: none;
+}
+
+.fl_g dt a {
+	font-family: microsoft yahei;
+}
+
+#sd_bdl {
+	background: #57BAE8
+		url(https://img.useit.com.cn/temcdn/various_artists/images/navban.png)
+		0 0 no-repeat;
+	border: 0;
+	display: none;
+}
+
+.bdl dt {
+	background: #57BAE8;
+	font-size: 16px;
+	font-family: microsoft yahei;
+	border: 0;
+}
+
+.bdl .tbn {
+	margin-bottom: 0;
+}
+
+.bdl dd a {
+	font-size: 14px;
+}
+
+.bdl dl.a dt {
+	background: #57BAE8;
+	font-size: 16px;
+	font-family: microsoft yahei;
+}
+
+.bdl dl dt a {
+	color: #fff;
+}
+
+.bdl dl {
+	background-color: #F2F4ED !important;
+}
+
+.bdl dd.bdl_a a {
+	color: #57BAE8;
+}
+
+.deanforumsubs {
+	height: 36px;
+	line-height: 36px;
+	background: #F2F2F2;
+	border: 1px solid #f6f6f6;
+	margin-bottom: 10px;
+}
+
+.deanforumsubs ul {
+	display: none;
+}
+
+.deanforumsubs ul.a {
+	display: block;
+}
+
+.deanforumsubs ul li {
+	float: left;
+}
+
+.deanforumsubs ul li.deancur {
+	padding: 0 15px;
+	font-size: 16px;
+	color: #333;
+}
+
+.deanforumsubs ul li a {
+	font-size: 16px;
+	color: #333;
+	display: block;
+	padding: 0 10px;
+}
+
+.deanforumsubs ul li a:hover {
+	color: #fff;
+	background: #57BAE8;
+}
+
+.deanforumsubs ul li.bdl_a a {
+	color: #fff;
+	background: #57BAE8;
+}
+
+.deanforumhot {
+	width: 998px;
+	height: 160px;
+	border: 1px solid #f6f6f6;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+.deanforumhotc {
+	padding: 10px;
+}
+
+.deanforumhottitle {
+	width: 36px;
+	float: left;
+	height: 140px;
+	background: #f6f6f6;
+	text-align: center;
+}
+
+.deanforumhottitle span {
+	display: block;
+	color: #333;
+	width: 16px;
+	font-size: 16px;
+	font-weight: normal;
+	font-family: microsoft yahei;
+	padding-top: 20px;
+	padding-left: 10px;
+	*padding-left: 5px;
+	_padding-left: 5px;
+}
+
+.deanforumhotul {
+	float: left;
+	width: 700px;
+}
+
+.deanforumhotdl {
+	float: right;
+	width: 240px;
+}
+
+.deanforumhotul ul {
+	
+}
+
+.deanforumhotul ul li {
+	float: left;
+	margin-left: 10px;
+	*margin-left: 8px;
+	_margin-left: 8px;
+	text-align: center;
+}
+
+.deanforumhotul ul li p {
+	padding-top: 5px;
+}
+
+.deanforumhotul ul li a {
+	font-size: 14px;
+	font-family: microsoft yahei;
+	color: #666;
+}
+
+.deanforumhotul ul li a:hover {
+	color: #57BAE8;
+}
+
+.deanforumhotdl dl {
+	
+}
+
+.deanforumhotdl dl dd {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+}
+
+.deanforumhotdl dl dd a {
+	font-size: 14px;
+	font-family: microsoft yahei;
+}
+
+.deanforum24 {
+	background: #fff;
+}
+
+.deanforum24 h2 {
+	height: 36px;
+	background: #F2F2F2;
+	border: 1px solid #f6f6f6;
+	line-height: 36px;
+	font-family: microsoft yahei;
+	font-size: 16px;
+	font-weight: normal;
+	color: #57BAE8;
+	text-indent: 20px;
+}
+
+.deanforum24 ul {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 10px;
+}
+
+.deanforum24 ul li {
+	float: left;
+	width: 24%;
+	padding-left: 1%;
+	height: 30px;
+	line-height: 30px;
+}
+
+.deanforum24 ul li a {
+	font-size: 14px;
+	font-family: microsoft yahei;
+}
+
+.deangbt {
+	border: 1px solid #f6f6f6;
+	margin: 10px auto;
+	background: #fff;
+}
+
+.deangbtc {
+	padding: 10px;
+}
+
+.deangbt .deanbgttitle {
+	height: 36px;
+	line-height: 36px;
+}
+
+.deangbttitle h2 {
+	float: left;
+	font-size: 16px;
+	font-family: microsoft yahei;
+	color: #57BAE8;
+}
+
+.deangbtnav {
+	float: left;
+	padding-left: 20px;
+}
+
+.deangbtnav a {
+	font-size: 14px;
+	font-family: microsoft yahei;
+	padding: 0 15px;
+}
+
+.deangbt ul {
+	padding-top: 10px;
+}
+
+.deangbt ul li {
+	float: left;
+	margin-right: 11px;
+	text-align: center;
+}
+
+.deangbt ul li a {
+	font-size: 14px;
+	font-family: microsoft yahei;
+}
+
+.deangbt ul li p {
+	padding-top: 5px;
+}
+
+.syn_qq,.syn_tqq,.syn_qq_check,.syn_tqq_check {
+	display: inline-block;
+	margin-top: 3px;
+	width: 19px;
+	height: 19px;
+	background: transparent
+		url(https://img.useit.com.cn/temcdn/static/image/common/connect_post_syn.png)
+		no-repeat 0 0;
+	line-height: 64px;
+	overflow: hidden;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.ie6 .syn_qq,.ie6 .syn_tqq,.ie6 .syn_qq_check,.ie6 .syn_tqq_check {
+	display: inline;
+}
+
+.syn_qq_check {
+	background-position: -22px 0;
+}
+
+.syn_tqq {
+	background-position: 0 -22px;
+	margin-left: 5px;
+}
+
+.syn_tqq_check {
+	background-position: -22px -22px;
+	margin-left: 5px;
+}

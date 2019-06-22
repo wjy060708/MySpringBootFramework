@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmProjectInfoMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.vo.ProjectInfoVo">
+		<id column="ProjectID" property="projectId" jdbcType="VARCHAR" />
+		
+		<result column="TemplateID" property="templateId" jdbcType="VARCHAR" />
+		<result column="TemplateName" property="templateName" jdbcType="VARCHAR" />
+		
+		<result column="GroupID" property="groupId" jdbcType="VARCHAR" />
+		<result column="GroupName" property="groupName" jdbcType="VARCHAR" />
+		
+		<result column="TypeID" property="typeId" jdbcType="VARCHAR" />
+		<result column="TypeName" property="typeName" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+		
+		<result column="UserID" property="userId" jdbcType="VARCHAR" />
+		<result column="TrueName" property="trueName" jdbcType="VARCHAR" />
+		
+		<result column="ProjectName" property="projectName" jdbcType="VARCHAR" />
+  		<result column="ProjectName" property="projectName" jdbcType="VARCHAR" />
+  		<result column="ProjectRemark" property="projectRemark" jdbcType="VARCHAR" />
+  		<result column="ProjectOrder" property="projectOrder" jdbcType="INTEGER" />
+  		<result column="ProjectGround" property="projectGround" jdbcType="VARCHAR" />
+  		<result column="ProjectMonney" property="projectMonney" jdbcType="VARCHAR" />
+  		<result column="ProjectStatus" property="projectStatus" jdbcType="VARCHAR" />
+  		
+  		<result column="StartTime" property="startTime" jdbcType="VARCHAR"/>
+  		<result column="EndTime" property="endTime" jdbcType="VARCHAR"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_PROJECT_INFO
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		ProjectID = #{projectId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.vo.ProjectInfoVo">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ProjectID,
+			
+			TemplateID,
+			
+			GroupID,
+			
+			TypeID,
+			
+			ProjectName,
+			ProjectRemark,
+			ProjectOrder,
+			ProjectGround,
+			ProjectMonney,
+			ProjectStatus,
+			
+			DepartmentID,
+			UserID,
+			
+			StartTime,
+			EndTime
+		
+		)
+		values
+		(
+			#{projectId, jdbcType=VARCHAR} ,
+			
+			#{templateId, jdbcType=VARCHAR} ,
+			
+			#{groupId, jdbcType=VARCHAR} ,
+			
+			#{typeId, jdbcType=VARCHAR} ,
+			
+			#{projectName, jdbcType=VARCHAR} ,
+			#{projectRemark, jdbcType=VARCHAR} ,
+			#{projectOrder, jdbcType=INTEGER} ,
+			#{projectGround, jdbcType=VARCHAR} ,
+			#{projectMonney, jdbcType=VARCHAR} ,
+			#{projectStatus, jdbcType=VARCHAR} ,
+			
+			#{departmentId, jdbcType=VARCHAR} ,
+			#{userId, jdbcType=VARCHAR} ,
+			
+			#{startTime, jdbcType=VARCHAR} ,
+			#{endTime, jdbcType=VARCHAR}
+
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.epm.vo.ProjectInfoVo">
+		update
+			<include refid="tableNameSql"/>
+		set
+			TemplateID = #{templateId, jdbcType=VARCHAR} ,
+		
+			GroupID = #{groupId, jdbcType=VARCHAR} ,
+			
+			TypeID = #{typeId, jdbcType=VARCHAR} ,
+		
+			ProjectName = #{projectName, jdbcType=VARCHAR} ,
+			ProjectRemark = #{projectRemark, jdbcType=VARCHAR} ,
+			ProjectOrder = #{projectOrder, jdbcType=INTEGER} ,
+			ProjectGround = #{projectGround, jdbcType=VARCHAR} ,
+			ProjectMonney = #{projectMonney, jdbcType=VARCHAR} ,	
+			ProjectStatus = #{projectStatus, jdbcType=VARCHAR} ,	
+			
+			UserID = #{userId, jdbcType=VARCHAR} ,
+			DepartmentID = #{departmentId, jdbcType=VARCHAR} ,
+			
+			StartTime = #{startTime, jdbcType=VARCHAR} ,
+			EndTime = #{endTime, jdbcType=VARCHAR} 
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			pi.ProjectID as ProjectID,
+			
+			pi.TemplateID as TemplateID,
+			pj.TemplateName as TemplateName,
+			
+			pi.TypeID as TypeID,
+			pt.TypeName as TypeName,
+			
+			pi.GroupID as GroupID,
+			pg.GroupName as GroupName,
+       		
+			pi.ProjectOrder as ProjectOrder,
+			pi.ProjectName as ProjectName,
+			pi.ProjectRemark as ProjectRemark,
+			pi.ProjectGround as ProjectGround,
+			pi.ProjectMonney as ProjectMonney,
+			pi.ProjectStatus as ProjectStatus,
+			
+			pi.DepartmentID as DepartmentID,
+            pa.DepartmentName as DepartmentName,
+			
+			pi.UserID as UserID,
+            pb.TrueName as TrueName,
+			
+			pi.StartTime as StartTime,
+			pi.EndTime as EndTime
+		
+		from
+			EPM_PROJECT_INFO pi left join EPM_PROJECT_GROUP pg on pi.GroupID = pg.GroupID,
+			EPM_PROJECT_TYPE pt,EPM_BOM_TEMPLATE pj,SYS_ORGANIZATION pa,SYS_USER pb
+		where
+			pi.TypeID = pt.TypeID
+		and
+            pi.TemplateID = pj.TemplateID 
+        and
+            pi.DepartmentID = pa.DepartmentID    
+        and
+            pi.UserID = pb. UserID
+        and 
+			pi.ProjectID = #{projectId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			pi.ProjectID as ProjectID,
+			
+			pi.TemplateID as TemplateID,
+            pa.TemplateName as TemplateName,
+			
+			pi.TypeID as TypeID,
+			pt.TypeName as TypeName,
+			
+			pi.GroupID as GroupID,
+			pg.GroupName as GroupName,
+       		
+			pi.ProjectOrder as ProjectOrder,
+			pi.ProjectName as ProjectName,
+			pi.ProjectRemark as ProjectRemark,
+			pi.ProjectGround as ProjectGround,
+			pi.ProjectMonney as ProjectMonney,
+			pi.ProjectStatus as ProjectStatus,
+			
+			pi.DepartmentID as DepartmentID,
+			pi.UserID as UserID,
+			
+			pi.StartTime as StartTime,
+			pi.EndTime as EndTime
+		from
+			EPM_PROJECT_INFO pi left join EPM_PROJECT_GROUP pg on pi.GroupID = pg.GroupID,
+			EPM_PROJECT_TYPE pt,EPM_BOM_TEMPLATE pa
+		where
+			pi.TypeID = pt.TypeID
+        and        
+            pi.TemplateID = pa.TemplateID   
+			
+	    <if test="groupId != null and groupId != ''"> 
+			and pi.GroupID = #{groupId}
+		</if> 
+			
+	    <if test="projectName != null and projectName != ''"> 
+			and pi.ProjectName like "%"#{projectName}"%"
+		</if>  
+	</select>
+	
+	<select id="selectByStatus" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			pi.ProjectID as ProjectID,
+			
+			pi.TemplateID as TemplateID,
+            pa.TemplateName as TemplateName,
+			
+			pi.TypeID as TypeID,
+			pt.TypeName as TypeName,
+			
+			pi.GroupID as GroupID,
+			pg.GroupName as GroupName,
+       		
+			pi.ProjectOrder as ProjectOrder,
+			pi.ProjectName as ProjectName,
+			pi.ProjectRemark as ProjectRemark,
+			pi.ProjectGround as ProjectGround,
+			pi.ProjectMonney as ProjectMonney,
+			pi.ProjectStatus as ProjectStatus,
+			
+			pi.DepartmentID as DepartmentID,
+			pi.UserID as UserID,
+			
+			pi.StartTime as StartTime,
+			pi.EndTime as EndTime
+		from
+			EPM_PROJECT_INFO pi left join EPM_PROJECT_GROUP pg on pi.GroupID = pg.GroupID,
+			EPM_PROJECT_TYPE pt,EPM_BOM_TEMPLATE pa
+		where
+			pi.TypeID = pt.TypeID
+        and        
+            pi.TemplateID = pa.TemplateID               
+        and        
+            pi.ProjectStatus = '1'  
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where ProjectID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

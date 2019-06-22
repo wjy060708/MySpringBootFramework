@@ -1,0 +1,3201 @@
+body {
+	background-color: transparent;
+}
+
+.wp {
+	width: 970px;
+}
+
+#hd {
+	margin-bottom: 0;
+	position: relative;
+	height: 140px;
+}
+
+#hd h2 {
+	padding: 25px 0 0 15px;
+	font-size: 14px;
+}
+
+#hd h2 strong {
+	display: block;
+}
+
+#nv {
+	position: absolute;
+	left: 10px;
+	height: auto;
+	bottom: 0;
+	background: transparent none;
+}
+
+#nv li,#home {
+	margin-right: 1px;
+	padding: 0 6px;
+	border: none;
+	height: 30px;
+	background: rgba(255, 255, 255, 0.7);
+	line-height: 30px;
+	font-size: 12px;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=  #70FFFFFF,
+		endColorstr=  #70FFFFFF );
+}
+
+#nv a,#nv a:visited {
+	padding: 0 14px;
+	color: #333;
+}
+
+#ct,.n,.w {
+	padding-top: 15px;
+	border: none;
+	background: transparent none !important;
+}
+
+.area {
+	padding: 0 5px;
+}
+
+.frame {
+	background: transparent none;
+}
+
+.block {
+	padding: 0;
+}
+
+.block .dxb_bc {
+	padding: 5px 10px 10px;
+}
+
+.block .title {
+	padding: 0 10px;
+	font-size: 12px;
+	color: #333;
+}
+
+#pcd .hm img {
+	padding: 2px;
+	background: #FFF;
+	border: 1px solid;
+	border-color: #F2F2F2 #E1E1E1 #E1E1E1 #F2F2F2;
+}
+
+#pcd h2 {
+	margin: 10px auto 0;
+}
+
+.mls li {
+	width: 69px;
+}
+
+.move-span {
+	margin: 1px;
+}
+
+.column,#share {
+	overflow: hidden;
+}
+
+.musicbj {
+	width: 60px;
+	height: 60px;
+}
+
+#spaceinfoshow {
+	position: relative;
+}
+
+#spaceinfoshow .oshr {
+	float: none;
+	margin-left: 10px;
+	padding: 1px 5px 1px 22px;
+	color: #4c8fff;
+}
+
+#doingform #message {
+	width: 500px;
+}
+
+#toptb {
+	padding: 0 10px;
+	border-bottom: 1px solid #E1E1E1;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/topnav.png)
+		repeat-x;
+}
+
+#hd h2 span {
+	display: block;
+}
+
+#hd ul.savebar {
+	width: 450px;
+	height: 20px;
+	border: 1px solid #ccc;
+}
+
+#hd ul.savebar li {
+	float: right;
+	margin: 0 3px;
+}
+
+.ipx {
+	background: none;
+	height: 17px;
+}
+
+#infoedit {
+	margin-left: 5px;
+	padding: 0 5px;
+	background: #369;
+	color: #FFF;
+	cursor: pointer;
+}
+
+#diy-tg {
+	float: right;
+	line-height: 30px;
+	background:
+		url(https://www.useit.com.cn/static/image/diy/panel-toggle-space.png)
+		no-repeat 100% 2px;
+	padding: 0 4px !important;
+}
+
+.topnav_pop li span {
+	display: none;
+}
+
+#myspace_menu li a,#navs_menu li a {
+	background-repeat: no-repeat;
+	background-position: -200px 0;
+}
+
+.ct2 .sd {
+	width: 180px;
+}
+
+.mn {
+	display: inline;
+	margin-left: 10px;
+	width: 760px !important;
+}
+
+.mt {
+	margin: 0;
+	padding: 0;
+}
+
+h1.mt {
+	font-size: 12px;
+}
+
+.bm {
+	background: #FFF;
+	zoom: 1;
+}
+
+.sd {
+	display: inline;
+	margin-right: 10px;
+	min-height: 0;
+}
+
+#pcd {
+	padding: 15px 4px 15px 6px;
+}
+
+.mla li,.mlp li {
+	width: 133px;
+}
+
+.buddy li {
+	width: 156px;
+}
+
+.pic .c img {
+	max-width: 714px;
+}
+
+* html .pic .c img {
+	width: expression(this.width >   714 ?   714 : true);
+}
+
+.ul_list {
+	
+}
+
+.ul_list a {
+	padding: 2px 0 2px 20px;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+}
+
+.ul_diy a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/thread_magic.gif);
+}
+
+.ul_msg a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/wall.gif);
+}
+
+.ul_avt a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/album.gif);
+}
+
+.ul_profile a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/profile.gif);
+}
+
+.ul_add a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/friend.gif);
+}
+
+.ul_ignore a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/friend.gif);
+}
+
+.ul_contect a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/wall.gif);
+}
+
+.ul_poke a {
+	background-image:
+		url(https://www.useit.com.cn/static/image/feed/poke.gif);
+}
+
+.ul_pm a {
+	background-image: url(https://www.useit.com.cn/static/image/feed/pm.gif);
+}
+
+.ul_magicgift {
+	height: 30px !important;
+	margin: 0 auto;
+	line-height: 30px;
+}
+
+.ul_broadcast a {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/static/image/common/ann_icon.gif);
+}
+
+.ul_flw a {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/static/image/common/flw_ico.png);
+}
+
+#magicreceivegift {
+	position: absolute;
+	top: 50px;
+	right: 20px;
+}
+
+.ct_vw_mn .buddy li {
+	width: 170px;
+}
+
+.px,.pt,.ps,select {
+	border-color: #C2C2C2 !important;
+}
+
+#space .tl tr:hover th,#space .tl tr:hover td {
+	background:
+		url(useit/css/background.jpg)
+		repeat-x bottom !important;
+}
+
+#space #toptb .qq_bind {
+	display: none;
+}
+
+#space {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/bg.gif)
+		!important;
+	padding-top: 50px !important;
+}
+
+#space .p_pop,.p_pof,#space .sllt {
+	background: #FFF;
+	border: none;
+	padding: 0;
+}
+
+#space .p_pop a {
+	background: none;
+	color: #A7A7A7;
+	border: none;
+	padding: 5px 8px !important;
+}
+
+#space .p_pop a:hover {
+	color: #FFF;
+	background: #EFEFEF;
+	background-color: rgba(0, 0, 0, 1);
+}
+
+#space .card .card_mn,#space .card .card_mn a,#space .card .card_mn .xg1
+	{
+	color: #FFF !important;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+}
+
+#space #navs_menu span {
+	display: none;
+}
+
+#space .bm {
+	border: none;
+}
+
+#space .bm_c {
+	padding: 0;
+}
+
+#space #toptb {
+	background: none !important;
+	background: #FFF !important;
+	min-width: 956px;
+	z-index: 1000;
+	border-bottom: 1px solid #CDCDD1;
+	height: 50px;
+	width: 100%;
+	font-size: 14px;
+	background-color: #FFF;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+	padding: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 302;
+}
+
+.minwidth #space #toptb {
+	min-width: 1200px;
+}
+
+#space #toptb .qq_bind {
+	margin-top: 15px;
+}
+
+#space #toptb #toptb_grid {
+	width: 98%;
+	margin: 0 auto;
+}
+
+#space #toptb a {
+	height: 50px;
+	line-height: 50px;
+	color: #A7A7A7;
+}
+
+#space #toptb .z a {
+	padding: 0 !important;
+}
+
+.minwidth #space #toptb .z a {
+	padding: 0 4px !important;
+}
+
+#space #toptb a:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+#space #toptb .fastlg .y {
+	margin-right: 0;
+}
+
+#space #toptb .z a.t_logo {
+	margin: 0 20px 0 0;
+	padding: 0 0 0 25px !important;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -384px 17px;
+	max-height: 50px;
+}
+
+#space #toptb a:hover.t_logo {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -384px -33px;
+}
+
+#space #switch_nav_prev {
+	position: fixed;
+	left: 15px;
+	top: 50%;
+	margin-top: -42px;
+}
+
+#space #switch_nav_next {
+	position: fixed;
+	right: 29px;
+	top: 50%;
+	margin-top: -42px;
+}
+
+#ajax_loading {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	background: rgba(255, 255, 255, 0.9);
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.the_third #nv {
+	background: none;
+	border-left: none;
+	border-right: none;
+}
+
+.the_third #nv li {
+	background: none;
+}
+
+.the_third #nv li a {
+	padding: 0 4px;
+	font-weight: normal;
+	color: #CCC;
+}
+
+.the_third .minwidth #nv li a {
+	padding: 0 8px;
+}
+
+.the_third #nv li a:hover {
+	background: none;
+	color: #FFF;
+}
+
+.the_third #nv li.hover a:hover,.the_third #nv li.hover a {
+	background: none;
+	color: #FFF;
+}
+
+.the_third #controlpanel {
+	top: 50px !important;
+}
+
+#space #scbar {
+	height: 28px;
+	border: 0;
+	border-width: 0;
+	background: none;
+	line-height: 28px;
+	overflow: hidden;
+	font-size: 12px;
+	margin: 12px 5px 0 0;
+	border: 0;
+	float: left;
+	border: 1px solid #EDEFF1;
+}
+
+#space #scbar table {
+	background: #333;
+}
+
+#space #scbar .xs2 {
+	font-size: 12px !important;
+}
+
+#space .scbar_icon_td {
+	width: 50px;
+	background: none;
+}
+
+#space .scbar_txt_td,#space .scbar_type_td {
+	background: none;
+	float: left;
+}
+
+#space .scbar_txt_td input {
+	height: 26px;
+	line-height: 25px;
+	padding: 0 5px;
+	background: #FFF;
+	width: 130px;
+	border: none;
+	outline: none;
+	font-size: 12px;
+	color: #CCC;
+	-webkit-transition: width .2s ease;
+	-moz-transition: width .2s ease;
+	-o-transition: width .2s ease;
+	-ms-transition: width .2s ease;
+	transition: width .2s ease;
+}
+
+#space #scbar_txt {
+	width: 85px;
+	border-left: none;
+	font-size: 12px;
+}
+
+.minwidth #space #scbar_txt {
+	width: 115px;
+}
+
+#space #scbar_txt:focus {
+	width: 85px;
+	background: #FFF;
+	color: #000;
+}
+
+.minwidth #space #scbar_txt:focus {
+	width: 150px;
+}
+
+#space .scbar_narrow #scbar_txt {
+	width: 100px;
+}
+
+#space .scbar_btn_td {
+	width: 20px;
+	text-align: center;
+}
+
+#space #scbar_btn {
+	width: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent none;
+}
+
+#space .scbar_type_td {
+	background: #FFF;
+	width: 32px;
+	height: 28px;
+	border-right: none;
+}
+
+#space .scbar_type_td a {
+	height: 28px !important;
+	line-height: 28px !important;
+	float: right;
+	padding: 0 !important;
+}
+
+#space #scbar_type {
+	display: block;
+	padding-left: 5px;
+	text-align: left;
+	text-decoration: none;
+}
+
+#space #scbar_hot {
+	padding-left: 8px;
+	height: 45px;
+	overflow: hidden;
+}
+
+#space #scbar_hot strong,#space #scbar_hot a {
+	float: left;
+	margin-right: 8px;
+	white-space: nowrap;
+}
+
+#space #scbar_type_menu {
+	margin: 0 0 0 -8px;
+}
+
+#space #scbar_type_menu a {
+	height: 28px !important;
+	line-height: 28px !important;
+}
+
+#space .p_pop a {
+	border: none;
+}
+
+#space .brs,#space .avt img,#space .oshr {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+#space #um {
+	padding-top: 0;
+	float: right;
+	padding-right: 0;
+}
+
+#space #um .extra1 {
+	display: inline;
+}
+
+#space #um #myrepeats {
+	height: 50px;
+	line-height: 50px;
+}
+
+#space #um .avt {
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 0;
+}
+
+#space #um .avt p {
+	position: absolute;
+	right: -7px;
+	top: 9px;
+	z-index: 199;
+	padding-left: 4px;
+	background: #CC0000;
+	color: #F2F2F2;
+	border: 1px solid #F2F2F2;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+#space #um .avt p em {
+	padding-right: 4px;
+	height: 17px;
+	line-height: 130%;
+	display: block;
+}
+
+#space #um span {
+	display: none;
+}
+
+#space #um #qmenu {
+	background: none;
+	width: auto;
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	text-shadow: none;
+	overflow: visible;
+	text-align: right;
+}
+
+#space #um #qmenu em {
+	padding: 0 8px 0;
+	font-weight: normal;
+}
+
+#space #um #qmenu p em {
+	padding: 0 5px 0 0;
+	font-weight: normal;
+}
+
+#space #um #qmenu img {
+	width: 30px;
+	height: 30px;
+	border: 2px solid #FFF;
+	padding: 0;
+	background: none;
+	overflow: hidden;
+	vertical-align: middle;
+	margin-top: -5px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+}
+
+.the_third #qmenu_menu {
+	padding: 0;
+}
+
+#space #um #qmenu:hover {
+	text-decoration: none;
+}
+
+#space #um #qmenu.a {
+	position: relative;
+	z-index: 302;
+	background-position: 0 -27px;
+}
+
+#space #qmenu_menu {
+	width: auto;
+	min-width: 100px;
+}
+
+#space #qmenu_menu ul.nav li {
+	float: left;
+}
+
+.ie6 #space #qmenu_menu ul.nav li {
+	clear: none !important;
+	width: auto !important;
+}
+
+#space #qmenu_menu ul.nav a {
+	margin-bottom: 10px;
+	padding: 47px 0 0;
+	width: 60px;
+	border: none;
+	border-radius: 4px;
+	background:
+		url(https://img.useit.com.cn/temcdn/static/image/common/noicon.gif)
+		no-repeat 50% 5px;
+	text-align: center;
+}
+
+#space #qmenu_menu ul.nav a:hover {
+	background-color: #E5EDF2;
+	color: #4c8fff;
+	text-shadow: none;
+}
+
+.t_qmenu_loginstatus #pm_ntc.new {
+	background: none;
+}
+
+.t_qmenu_loginstatus #pm_ntc.new:hover {
+	background: #E5EDF2;
+}
+
+#qmenu_menu.p_pop .t_qmenu_info a {
+	display: inline;
+}
+
+.t_qmenu_setting {
+	padding: 10px 0;
+}
+
+#qmenu_menu.p_pop .t_qmenu_setting a {
+	display: inline;
+}
+
+.t_qmenu_diy-tg {
+	padding-bottom: 10px;
+}
+
+.t_qmenu_logout {
+	
+}
+
+#qmenu_menu.p_pop a {
+	float: none;
+}
+
+#toptb .t_qmenu_info .y {
+	padding: 0;
+}
+
+#t_space_hd {
+	width: 956px;
+	height: 420px;
+	background: none;
+	margin: 35px auto 0;
+	overflow: hidden;
+}
+
+#t_space_hd #t_space_banner {
+	width: 956px;
+	height: 180px;
+	overflow: hidden;
+	min-width: 1200px;
+	position: relative;
+}
+
+.minwidth #t_space_hd {
+	width: 1200px;
+	height: 420px;
+	background: none;
+	margin: 35px auto 0;
+	overflow: hidden;
+}
+
+.minwidth #t_space_hd #t_space_banner {
+	width: 1200px;
+	height: 180px;
+	overflow: hidden;
+	min-width: 1200px;
+	position: relative;
+}
+
+#t_space_hd #hd {
+	height: 360px !important;
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/default.cover.jpg);
+	background-repeat: no-repeat;
+	background-size: cover !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	position: absolute !important;
+	height: auto !important;
+}
+
+#t_space_username {
+	position: absolute;
+	top: -202px;
+	left: 145px;
+	margin-right: 10px;
+	font-size: 22px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+#t_space_username a {
+	color: #FFF;
+}
+
+.gender_male_icon {
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left top;
+	margin: 0 8px -5px 0;
+}
+
+.gender_female_icon {
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left 50px;
+	margin: 0 8px -5px 0;
+}
+
+.t_space_admin {
+	font-size: 12px;
+}
+
+#t_space_userinfo {
+	width: 956px;
+	height: 0;
+	position: relative;
+	margin: 0 auto;
+}
+
+.minwidth #t_space_userinfo {
+	width: 1200px;
+	height: 0;
+	position: relative;
+	margin: 0 auto;
+}
+
+#t_userinfo_shade {
+	width: 100%;
+	height: 190px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/userinfo_shade.png)
+		repeat-x;
+	position: absolute;
+	top: 260px;
+	left: 0;
+}
+
+#t_space_avatar {
+	width: 120px;
+	height: 120px;
+	padding: 5px;
+	position: absolute;
+	top: -205px;
+	left: 0;
+	background: #FFF;
+	float: left;
+}
+
+.t_space_avatar img {
+	width: 120px;
+	height: 120px;
+}
+
+.t_banner_nav {
+	position: absolute;
+	right: 0;
+	top: -100px;
+	background: none;
+}
+
+.t_banner_nav a {
+	width: 62px;
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+	font-size: 12px;
+	color: #FFF;
+	text-align: center;
+	margin-left: 5px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/l_banner_nav.gif)
+		no-repeat 0 0;
+}
+
+.t_banner_nav a:hover {
+	background-position: 100% 0;
+}
+
+.t_space_views {
+	position: absolute;
+	right: 0;
+	top: -35px;
+	font-size: 14px;
+	color: #fff;
+	font-weight: normal;
+	float: right;
+	padding-right: 15px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+.t_space_views_right {
+	right: 40px;
+}
+
+.t_space_domain {
+	position: absolute;
+	left: 0;
+	top: -35px;
+	font-size: 14px;
+	color: #fff;
+	font-weight: normal;
+	float: right;
+	padding-left: 15px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+.t_space_domain a {
+	color: #fff;
+}
+
+.t_space_domain i {
+	margin-right: 8px;
+}
+
+#t_space_nv {
+	font-size: 14px;
+	color: #888;
+	background: #FFF;
+	border: 1px solid #DADADA;
+	border-top: none;
+	line-height: 46px;
+}
+
+#t_space_nv ul {
+	text-align: center;
+}
+
+#t_space_nv li {
+	display: inline-block;
+}
+
+#t_space_nv li.a {
+	border-bottom: 3px solid #DADADA;
+}
+
+#t_space_nv li a {
+	display: block;
+	color: #888;
+	padding: 5px 20px 5px;
+}
+
+#t_space_nv li.a a {
+	color: #333;
+}
+
+#t_space_userinfo #user_menu {
+	font-size: 14px;
+	margin-top: 7px;
+}
+
+#t_space_userinfo #user_menu li {
+	float: left;
+}
+
+#t_space_userinfo #user_menu li a {
+	background: #02ADEA;
+	padding: 3px 10px;
+	margin-right: 10px;
+	display: block;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	text-shadow: none;
+}
+
+#t_space_userinfo .diy_hd {
+	position: absolute;
+	right: 15px;
+	top: -35px;
+}
+
+#t_space_userinfo .diy_hd a {
+	width: 25px;
+	height: 25px;
+	display: block;
+	overflow: hidden;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -60px;
+}
+
+#t_space_homenav .t_space_userurl a {
+	font-size: 11px;
+	color: #A7A7A7;
+	margin-left: 123px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+#t_space_userintro {
+	position: absolute;
+	top: -125px;
+	left: 145px;
+	color: #FFF;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+#t_space_userintro a {
+	color: #FFF;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+#t_space_userintro .t_location {
+	padding: 0 15px 0 18px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -37px 0;
+}
+
+#t_space_userintro .t_customshow {
+	margin-top: 8px;
+	color: #FFF;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+#t_space_userintro .t_customshow a {
+	color: #FFF;
+}
+
+#space .center #t_space_userinfo {
+	width: 956px;
+	min-width: 956px;
+}
+
+.minwidth #space .center #t_space_userinfo {
+	width: 1200px;
+	min-width: 1200px;
+}
+
+#space .center #t_space_avatar {
+	width: 120px;
+	height: 120px;
+	background: none;
+	left: 50%;
+	top: -320px;
+	margin-left: -65px;
+}
+
+#space .center #t_space_avatar img {
+	width: 110px;
+	height: 110px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: 5px solid #FFF;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, .6);
+}
+
+#space .center #t_space_username {
+	width: 300px;
+	text-align: center;
+	left: 50%;
+	top: -170px;
+	margin-left: -150px;
+	margin-right: 0;
+}
+
+#space .center #t_space_userintro {
+	width: 400px;
+	text-align: center;
+	left: 50%;
+	top: -120px;
+	margin-left: -200px;
+}
+
+#space .center #t_space_userintro .t_location {
+	padding-right: 0;
+	padding-bottom: 15px;
+}
+
+#space .center #t_space_userintro span {
+	display: none;
+}
+
+#space .center #t_space_username .gender_male_icon,#space .center #t_space_username .gender_female_icon
+	{
+	display: none;
+}
+
+#contact_more {
+	-webkit-transition: all .5s ease;
+	-moz-transform: all .5s ease;
+	-ms-transform: all .5s ease;
+	cursor: pointer;
+}
+
+#contact_more:hover {
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.contact_more {
+	-webkit-transition: all .5s ease;
+	-moz-transform: all .5s ease;
+	-ms-transform: all .5s ease;
+	cursor: pointer;
+}
+
+.contact_more:hover {
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+#space .center #contact_more_menu.p_pop {
+	border: 2px solid #DDD;
+	margin: 2px 0 0 -5px;
+}
+
+#space .center #contact_more_menu li a {
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+#space .center .contact_more {
+	width: 27px;
+	height: 27px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat 0 -92px;
+	position: absolute;
+	bottom: 15px;
+	right: 12px;
+}
+
+#space .center #user_menu {
+	display: none;
+}
+
+#space .wp {
+	width: 956px !important;
+	min-width: 956px;
+}
+
+.minwidth #space .wp {
+	width: 1200px !important;
+	min-width: 1200px;
+}
+
+.minwidth #space #ft.wp {
+	width: 100% !important;
+}
+
+#space #ct {
+	min-height: 450px;
+}
+
+.t_space_album_c {
+	padding: 0 0 5px;
+}
+
+.t_space_album_more {
+	padding: 0 0 15px;
+}
+
+.t_space_album_more a {
+	width: 240px;
+	height: 42px;
+	display: block;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 42px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #000;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -160px -184px;
+}
+
+#t_album_pics a {
+	opacity: 0;
+}
+
+.info #t_album_pics a {
+	opacity: 1;
+}
+
+#t_album_cover {
+	position: relative;
+}
+
+#t_album_cover li {
+	display: none;
+	border: 1px solid #DADADA;
+	background: #FFF;
+	color: #7F7F7F;
+	font-size: 0;
+	width: 222px;
+}
+
+#t_album_cover li a {
+	width: 222px;
+	height: 222px;
+	overflow: hidden;
+}
+
+#t_album_cover li img {
+	width: 222px;
+	height: 222px;
+	min-width: 222px;
+	min-height: 222px;
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+}
+
+#t_album_cover li:hover img {
+	filter: brightness(110%);
+	-webkit-filter: brightness(110%);
+	-moz-filter: brightness(110%);
+	-o-filter: brightness(110%);
+	-ms-filter: brightness(110%);
+}
+
+#t_album_cover li p.desc {
+	margin-top: 0;
+	padding: 10px 15px 10px;
+	max-width: 190px !important;
+	font-weight: 700;
+}
+
+#t_album_cover li p.desc a {
+	font-size: 14px;
+}
+
+#t_album_cover li p.detail {
+	padding: 10px 15px 15px;
+	height: auto;
+}
+
+#t_album_cover li p.detail em {
+	font-size: 12px;
+}
+
+#t_album_cover li p a {
+	color: #333;
+}
+
+#t_album_cover li .line {
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+}
+
+#t_album_cover li .line .line_a {
+	border-bottom: 1px solid #DADADA;
+	height: 1px;
+	width: 220px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#t_album_cover li .line .line_b {
+	border-bottom: 1px solid #DADADA;
+	height: 1px;
+	width: 216px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#t_album_cover .upload_new {
+	border: 2px dashed #DADADA;
+	background: none;
+	height: 304px;
+	overflow: hidden;
+}
+
+#t_album_cover .upload_new a {
+	display: block;
+	width: 220px;
+	height: 400px;
+	background: #F7F7F7;
+	text-align: center;
+	line-height: 140px;
+	font-size: 14px;
+	color: #888;
+}
+
+#t_album_cover .upload_new a:hover {
+	background: #EBEBEB;
+	text-decoration: none;
+}
+
+#t_album_cover i {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -95px -60px;
+	width: 60px;
+	height: 60px;
+	display: block;
+	margin-left: 80px;
+	margin-top: 100px;
+}
+
+#t_album_cover a.share {
+	margin-left: 3px;
+}
+
+#t_album_cover a.fav i,#t_album_cover a.share i {
+	margin-top: 0;
+	margin-left: 0;
+}
+
+.thumbs_title {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.thumbs_title a {
+	position: absolute;
+	display: inline-block;
+	overflow: hidden;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+}
+
+.thumbs_title a img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.thumbs_title a .caption {
+	font-size: 16px;
+	position: absolute;
+	bottom: 0;
+	padding: 0 10px 7px 10px;
+	left: 0;
+	right: 0;
+	margin: 0;
+	color: #FFF;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+}
+
+.thumbs_title a .caption em {
+	font-size: 12px;
+}
+
+.thumbs_title a .caption i {
+	font-size: 12px;
+	padding-left: 16px;
+	float: right;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -8px -127px;
+}
+
+.thumbs_title a .caption i em {
+	margin-left: 8px;
+	padding-left: 16px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -8px -146px;
+}
+
+.thumbs_title .spinner {
+	position: absolute;
+	bottom: 0;
+	margin-left: -24px;
+	padding: 10px 0 10px 0;
+	left: 50%;
+}
+
+.thumbs_title .spinner span {
+	display: inline-block;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	width: 8px;
+	height: 8px;
+	margin: 0 4px 0 4px;
+	background-color: #000;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+#photo_pic {
+	padding: 0 15px 0;
+	background: #000;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+}
+
+#photo_pic #next,#photo_pic #pre {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 99;
+}
+
+#photo_pic #next {
+	right: 0;
+}
+
+#photo_pic #pre {
+	left: 0;
+}
+
+#photo_pic #next img,#photo_pic #pre img {
+	width: 14px;
+	height: 40px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat;
+}
+
+#photo_pic #next img {
+	float: right;
+	margin-right: 15px;
+	background-position: -355px top;
+}
+
+#photo_pic #pre img {
+	float: left;
+	margin-left: 15px;
+	background-position: -335px top;
+}
+
+#photo_pic #next:hover img {
+	background-position: -315px top;
+}
+
+#photo_pic #pre:hover img {
+	background-position: -295px top;
+}
+
+.photo_actions {
+	padding: 15px 10px;
+	background: #000;
+}
+
+.photo_actions a {
+	color: #FFF;
+}
+
+#photo_extra {
+	height: 100px;
+	width: 956px;
+	min-width: 956px;
+	margin: 0 auto;
+}
+
+.minwidth #photo_extra {
+	width: 1200px;
+}
+
+#t_space_panel_min {
+	float: left;
+	width: 520px;
+	margin-top: 20px;
+	border: 1px solid #DEDFE0;
+	background: #FFF;
+}
+
+.minwidth #t_space_panel_min {
+	width: 765px;
+}
+
+#t_space_panel_min #t_space_userinfo {
+	width: 100%;
+	border-bottom: none;
+	background: none;
+	height: 90px;
+	padding: 10px;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+#t_space_panel_min #t_space_avatar {
+	width: 72px;
+	height: 72px;
+	margin-left: 0;
+	float: left;
+	position: static;
+	top: 0;
+	left: 0;
+	background: none;
+}
+
+#t_space_panel_min #t_space_avatar a {
+	width: 72px;
+	height: 72px;
+	display: block;
+}
+
+#t_space_panel_min #t_space_avatar img {
+	width: 72px;
+	height: 72px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#t_space_panel_min #t_space_avatar .contact_more {
+	width: 16px;
+	height: 16px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -2px -169px;
+	position: absolute;
+	left: 70px;
+	top: 68px;
+}
+
+#t_space_panel_min #t_space_userinfo_extra {
+	width: 390px;
+	float: left;
+	padding-left: 15px;
+}
+
+#t_space_panel_min #t_space_username {
+	width: 350px;
+	text-align: left;
+	position: static;
+	top: 0;
+	left: 0;
+	text-shadow: none;
+}
+
+#t_space_panel_min #t_space_username a {
+	color: #333;
+}
+
+#t_space_panel_min #t_space_avatar .gender_male_icon {
+	left: -4px;
+}
+
+#t_space_panel_min #t_space_avatar .gender_female_icon {
+	left: -4px;
+}
+
+#t_space_panel_min #t_album_count {
+	text-align: left;
+}
+
+#t_space_panel_min #t_album_count em {
+	padding: 0 10px 0 5px
+}
+
+#t_space_panel_min #t_album_count {
+	width: 350px;
+	height: 28px;
+	color: #A7A7A7;
+	font-size: 14px;
+}
+
+#t_space_panel_min #t_album_count em {
+	color: #7F7F7F;
+	font-size: 18px;
+}
+
+#t_space_panel_min #t_space_userintro {
+	font-size: 12px;
+	margin-top: -2px;
+	position: static;
+	padding: 0 0 0 15px;
+}
+
+#t_space_panel_min #t_space_userintro a {
+	text-shadow: none;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -37px -32px;
+}
+
+#photo_extra .thumb {
+	width: 72px;
+	height: 72px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 2px;
+}
+
+#photo_extra .thumb img {
+	max-width: none;
+	max-height: none;
+	min-width: 72px;
+	min-height: 72px;
+	padding: 0;
+	_width: expression(this.width >   72 &&   this.width >= this.height ?   72 :
+		true);
+	height: expression(this._height >   72 &&   this.width <= this.height ?   72 :
+		true);
+	border: none;
+	background: #000;
+	margin: 0;
+}
+
+#album_pic_title {
+	width: 455px;
+	margin-left: 45px;
+	padding: 10px;
+	color: #7F7F7F;
+}
+
+.minwidth #album_pic_title {
+	width: 700px;
+}
+
+#album_pic_title i {
+	width: 27px;
+	height: 20px;
+	display: block;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -39px -95px;
+	margin-left: -40px;
+	float: left;
+}
+
+#album_pic_title #a_set_title {
+	font-size: 14px;
+}
+
+#album_replay {
+	width: 410px;
+	margin-right: 10px;
+	text-align: right;
+}
+
+#album_replay.mtm {
+	margin-top: 20px !important;
+	border: 1px solid #DEDFE0;
+	background: #FFF;
+}
+
+#album_replay .input_txt {
+	border-bottom: 1px solid #EAEAEA;
+	padding-bottom: 10px;
+}
+
+#album_replay .tedt {
+	border-color: #C2C2C2 !important;
+	margin-left: 40px;
+}
+
+#album_replay .pns .pn {
+	margin-left: 40px;
+	height: 30px;
+	overflow: hidden;
+	border: none;
+	background: #22b4f6;
+	border-radius: 2px;
+	color: #FFF;
+	font-size: 14px;
+	width: 85px;
+}
+
+#album_replay.mlnv img {
+	border: none;
+}
+
+#album_console {
+	position: absolute;
+	padding: 0 15px;
+	top: 90px;
+	right: 0;
+}
+
+#pic_comment {
+	max-width: 622px;
+	text-align: left;
+}
+
+#click_div {
+	padding: 0 15px;
+	width: 622px;
+}
+
+#pic_comment {
+	padding: 0 15px;
+}
+
+#click_div .atd {
+	width: 622px;
+	height: 20px;
+	margin: 0;
+	padding: 10px 0;
+}
+
+#click_div .atd dl {
+	height: 20px;
+	float: left;
+	margin-right: 30px;
+}
+
+#click_div .atd dt {
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+
+#click_div .atd dd {
+	margin-left: 25px;
+	text-align: left;
+}
+
+#click_div .atd img {
+	width: 18px;
+	height: 18px;
+}
+
+#space hr.da {
+	background:
+		url(useit/css/background.jpg)
+		repeat-x top;
+	border-top: none;
+}
+
+#space .bbda {
+	background:
+		url(useit/css/background.jpg)
+		repeat-x bottom;
+	border-bottom: none;
+}
+
+#space #ct .bm {
+	background: none;
+}
+
+#space .mn {
+	width: 956px !important;
+}
+
+.minwidth #space .mn {
+	width: 1200px !important;
+}
+
+#space .bm_h {
+	border: none;
+	background:
+		url(useit/css/background.jpg)
+		repeat-x bottom;
+	margin-bottom: 10px;
+}
+
+#space .bm_h .mt {
+	padding: 0;
+}
+
+#space .bm_c {
+	padding: 0;
+}
+
+#space .tbmu {
+	background: none;
+	border-bottom: 1px solid #D4D5D5;
+}
+
+#space .ml li {
+	padding: 0;
+}
+
+#space .buddy li {
+	margin: 10px 0 0;
+	padding: 0 10px 5px;
+	width: 140px;
+	height: 120px;
+	background: none;
+	border: none;
+}
+
+#space .buddy li p {
+	text-align: center;
+}
+
+#space .buddy .avt {
+	position: absolute;
+	margin-left: 42px;
+}
+
+#space .buddy .avt .contact_more {
+	width: 16px;
+	height: 16px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -2px -169px;
+	position: absolute;
+	bottom: 1px;
+	right: -1px;
+}
+
+#space .buddy .avt img {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#space .buddy h4 {
+	font-size: 16px;
+	height: 25px;
+	padding: 3px 0;
+	margin-top: 55px;
+	text-align: center;
+}
+
+#space .buddy h4 span {
+	font-size: 12px;
+}
+
+#space .tl th,#space .tl td {
+	vertical-align: top;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border: none;
+	background:
+		url(useit/css/background.jpg)
+		repeat-x bottom;
+	border-bottom: none !important;
+}
+
+#space .desc {
+	max-width: 600px;
+	margin-top: 8px;
+}
+
+#space .post_imgs_box {
+	height: 100px;
+	margin: 8px 0 0;
+}
+
+#space .post_imgs {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-left: 5px;
+}
+
+#t_friend ul li,#t_visitor ul li,#t_group ul li {
+	float: left;
+	width: 25%;
+	height: 60px;
+	margin: 0 0 8px 0;
+	text-align: center;
+}
+
+#t_friend ul li .avt img,#t_visitor ul li .avt img,#t_group ul li img {
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	border: 0;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#diy_more_menu select {
+	padding: 5px 0;
+	font-size: 12px;
+	width: 200px;
+}
+
+#diy_more_menu .submit {
+	padding: 5px 20px;
+	font-size: 12px;
+	background: #02ADEA;
+	border: none;
+	color: #FFF;
+	margin-right: 0;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	text-shadow: none;
+	cursor: pointer;
+	float: right;
+}
+
+#diy_more_menu .title {
+	background: transparent;
+	border-bottom: 1px solid #DADADA;
+	position: relative;
+	height: auto;
+	overflow: visible;
+	line-height: normal;
+	margin-bottom: 15px;
+	font-size: 12px;
+	padding: 0;
+	width: 525px;
+}
+
+#diy_more_menu .title span {
+	padding-right: 10px;
+	margin-bottom: -7px;
+	background: #FFF;
+	display: inline-block;
+	_position: relative;
+}
+
+#diy_more_menu.p_pop {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/controlpanel_menu_bg.png)
+		repeat-x bottom;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#diy_more_menu a.float_exit {
+	width: 36px;
+	height: 36px;
+	display: block;
+	position: absolute;
+	right: -18px;
+	top: -18px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -193px;
+	padding: 0 !important;
+	-webkit-transition: all .5s ease;
+	-moz-transform: all .5s ease;
+	-ms-transform: all .5s ease;
+}
+
+#diy_more_menu a:hover.float_exit {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -193px;
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+#diy_more_menu input {
+	float: none;
+	margin-top: 10px;
+}
+
+#diy_more_menu img {
+	opacity: 1;
+}
+
+#diy_avatar_box {
+	height: 140px;
+}
+
+#diy_more_menu .diy_avatar_box {
+	width: 250px;
+	height: 140px;
+	text-align: center;
+}
+
+#diy_more_menu .diy_index {
+	margin: 25px 0;
+}
+
+#diy_more_menu .diy_index .title {
+	margin-top: 10px;
+}
+
+#diy_index_box {
+	height: 235px;
+}
+
+#diy_more_menu .diy_index_box {
+	width: 165px;
+	height: 235px;
+	text-align: center;
+}
+
+#space #t_space_space .title {
+	font-size: 15px;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+#t_feed {
+	font-size: 14px;
+	padding-bottom: 45px;
+}
+
+#t_feed_ul {
+	position: relative;
+	width: 940px;
+}
+
+#t_feed .xg1,#t_feed .xg1 a {
+	text-align: center;
+}
+
+#t_feed li {
+	background: #FFF;
+	border: none;
+	padding: 0 0 20px;
+	width: 458px;
+	display: none;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	color: #7F7F7F;
+}
+
+#t_feed .t {
+	margin-right: 5px;
+}
+
+#t_feed .ec .img {
+	width: 438px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#t_feed .ec a .tn {
+	max-height: inherit;
+	max-width: inherit;
+	background: #333;
+	float: none;
+	border: none;
+	margin: 10 0 0;
+}
+
+#t_visitor .god {
+	margin: -15px 0px 0px 48px;
+}
+
+#t_visitor .gol {
+	margin: 38px 0 0 5px;
+}
+
+#space #t_feed .feed_title {
+	width: 428px;
+	text-align: center;
+	padding: 20px 15px 15px;
+	background: #FAFAFA;
+	border-bottom: 1px solid #DEDFE0;
+}
+
+#space #t_feed .quote {
+	text-align: left;
+}
+
+#space #t_feed .feed_concent {
+	width: 428px;
+	text-align: center;
+	padding: 20px 15px 15px;
+}
+
+#space #t_feed .feed_concent .d {
+	text-align: left;
+	font-size: 12px;
+}
+
+#space #t_feed .commentuser,#space #t_feed .commenttips {
+	width: 428px;
+	padding: 0 15px;
+	text-align: left;
+}
+
+#space #t_feed .commentuser .avt {
+	padding: 0;
+	margin-right: 10px;
+}
+
+#space #t_feed .commentuser .avt img {
+	padding: 0;
+	width: 48px;
+	height: 48px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: 0;
+}
+
+#space #t_feed .commentuser span {
+	
+}
+
+#space #t_feed .commenttips {
+	text-align: right;
+}
+
+#space #t_feed .commenttips .feed_comment_counts {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -256px;
+	padding-left: 18px;
+}
+
+#space #t_feed .commenttips .feed_hot {
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -238px;
+	padding-left: 18px;
+	margin-left: 10px;
+}
+
+#space .index_waterfall #t_album_pics a {
+	opacity: 1;
+}
+
+#space .index_waterfall #t_album_ul {
+	position: relative;
+}
+
+#space .index_waterfall #t_album_ul li {
+	display: none;
+	background: #FFF;
+	text-align: center;
+	padding: 0;
+	border: 1px solid #DADADA;
+}
+
+#space .index_waterfall .imgtitle {
+	width: 242px;
+	padding: 0 10px 5px;
+	white-space: normal;
+	height: auto;
+	color: #666;
+}
+
+.minwidth #space .index_waterfall .imgtitle {
+	width: 265px;
+}
+
+#space #ajax_grid .ajax_show_pic {
+	width: 810px;
+}
+
+#space #ajax_grid .owner {
+	display: none;
+}
+
+#space #ajax_grid .other_photos {
+	display: none;
+}
+
+#space #ajax_grid .ajax_show_pic .works {
+	width: 810px;
+}
+
+#space #ajax_grid .motion .click_button {
+	margin-left: 153px;
+}
+
+#space #ajax_grid .motion .click_button_menu {
+	width: 810px;
+	margin-left: -153px;
+}
+
+#space #ajax_grid .motion .share_button {
+	margin-left: 200px;
+}
+
+#space #ajax_grid .motion .more_button {
+	margin-right: 153px;
+}
+
+#space #ajax_grid .ajax_show_pic .photo .image img {
+	max-width: 810px;
+}
+
+#space #t_album_view_ajax {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, .1) !important;
+	z-index: 200;
+}
+
+#space .t_album_view_title {
+	padding-left: 90px;
+	position: relative;
+}
+
+#space .t_album_view_title .t_pic {
+	position: absolute;
+	width: 72px;
+	height: 72px;
+	left: 0;
+	border: 3px solid #FFF;
+	overflow: hidden;
+}
+
+#space .t_album_view_title .t_pic img {
+	min-width: 72px;
+	min-height: 72px;
+	width: 100%;
+}
+
+#space .t_album_view_title .title {
+	font-size: 18px;
+	font-weight: normal;
+	padding: 0;
+}
+
+#space .t_album_view_title .xg1 {
+	color: #666 !important;
+	margin-left: 5px;
+}
+
+#space .t_album_view_title .xg1 a {
+	color: #369 !important;
+}
+
+#space .t_album_view_title .depict {
+	margin-top: 18px;
+	min-height: 32px;
+	padding-left: 40px;
+}
+
+#space .t_album_view_title .depict i {
+	margin-left: -40px;
+	width: 27px;
+	height: 20px;
+	display: block;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -39px -95px;
+	float: left;
+}
+
+#space .t_album_view_title .album-cover {
+	position: absolute;
+	width: 78px;
+	height: 78px;
+	left: 0;
+	z-index: 10;
+}
+
+#space .t_album_view_title #album-cover {
+	width: 72px;
+	height: 72px;
+	border: 3px solid #FFF;
+	position: relative;
+	overflow: hidden;
+}
+
+#space .t_album_view_title #album-cover #mabuzkicover_img_preview_menu img
+	{
+	width: 72px;
+	height: 72px;
+}
+
+#space .t_album_view_title #album-cover .options {
+	position: absolute;
+	z-index: 15;
+	top: 3px;
+	left: 3px;
+}
+
+#space .t_album_view_edit {
+	width: 500px;
+	padding: 20px 20px 7px;
+	background: #FFF;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -260px;
+	margin-top: -145px;
+	border-radius: 4px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/controlpanel_menu_bg.png)
+		repeat-x bottom;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#space .t_album_view_edit a.float_exit {
+	width: 36px;
+	height: 36px;
+	display: block;
+	position: absolute;
+	right: -18px;
+	top: -18px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left -193px;
+	padding: 0 !important;
+	-webkit-transition: all .5s ease;
+	-moz-transform: all .5s ease;
+	-ms-transform: all .5s ease;
+}
+
+#space .t_album_view_edit .tfm .px {
+	height: 28px;
+	padding-left: 10px;
+	background: none;
+}
+
+#space .t_album_view_edit .tfm .pt {
+	padding-left: 10px;
+	padding-top: 8px;
+	background: none;
+}
+
+#space .t_album_view_edit .tfm select {
+	background: none;
+	height: 34px;
+	padding-left: 5px;
+}
+
+#space .t_album_view_intro {
+	margin-bottom: 10px;
+	height: 32px;
+}
+
+#space .t_album_view_console a {
+	height: 31px;
+	padding: 0 8px;
+	display: inline;
+	float: left;
+	margin-right: 10px;
+	line-height: 31px;
+	color: #FFF;
+	border-radius: 3px;
+	text-align: center;
+	box-shadow: none;
+	border: none;
+	background-color: #A7A7A7;
+}
+
+#space .t_album_view_console a:hover {
+	text-decoration: none;
+	background: #A7A7A7;
+}
+
+#space #qk_upload_pic {
+	border: none;
+	background: #4CD964;
+}
+
+#space #qk_upload_pic:hover {
+	background: #34BE49;
+}
+
+.t_album_view_console_owner {
+	position: absolute;
+	right: 0;
+	top: 18px;
+}
+
+#space .mn {
+	margin-left: 0;
+}
+
+#space .t_title,#space .t_title h2 {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+#space .t_album_view_others li {
+	width: 236px;
+	overflow: visible;
+}
+
+#space .t_album_view_others li .c {
+	position: relative;
+}
+
+#space .t_album_view_others li p {
+	width: 170px;
+	position: absolute;
+	bottom: 10px;
+	left: 33px;
+	color: #FFF;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.8), 1px 1px 1px
+		rgba(0, 0, 0, 0.6);
+	text-align: left;
+}
+
+#space .t_album_view_others li p a {
+	color: #FFF !important;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+#space .t_album_view_others li img {
+	width: 190px;
+	height: 190px;
+	padding: 5px;
+	background: #FFF;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+#space #feed_div {
+	position: relative;
+}
+
+#space .mn {
+	overflow: visible;
+}
+
+#space #feed_div .el li {
+	padding: 10px 0;
+	border-bottom: none;
+}
+
+#space #feed_div .el .o {
+	margin-right: 0;
+	margin-top: 2px;
+}
+
+#space #feed_div .ec a .tn {
+	max-width: 224px;
+	max-height: none;
+	width: 224px;
+}
+
+#space #feed_div .item {
+	display: none;
+	width: 224px;
+	padding: 0;
+	line-height: 1.5;
+	background-color: #fff;
+	box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-moz-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-webkit-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #adacac,
+		direction=  135, strength=  2 );
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+
+#space #feed_div .item:hover {
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #979797,
+		direction=  135, strength=  3 );
+}
+
+#space #feed_div .t_feed_comment_msg img {
+	width: 20px;
+	height: 20px;
+}
+
+#space #feed_div .t_feed_ul .xlda .m {
+	margin: 3px 0 3px -33px;
+}
+
+#space #feed_div .t_feed_ul .xlda dl {
+	padding-left: 33px;
+}
+
+#space #feed_div .t_feed_ul .xld dt {
+	padding: 2px 0 5px;
+}
+
+#space #feed_div .t_feed_ul .avt img {
+	border: 0;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	-moz-border-radius: 50% !important;
+	-webkit-border-radius: 50% !important;
+	border-radius: 50% !important;
+}
+
+#space #feed_div .t_feed_ul .del {
+	width: 34px;
+	height: 34px;
+	display: block;
+	position: absolute;
+	right: -20px;
+	top: -11px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -51px -194px;
+	padding: 0 !important;
+}
+
+#space #feed_div .t_feed_ul .del em {
+	width: 21px;
+	height: 21px;
+	display: block;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat -95px -198px;
+	-webkit-transition: all .5s ease;
+	-moz-transform: all .5s ease;
+	-ms-transform: all .5s ease;
+	margin: 4px 0 0 4px;
+}
+
+#space #feed_div .t_feed_ul .del:hover em {
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+#space #feed_div .t_feed_ul .quote {
+	display: none;
+}
+
+#space #feed_div .t_feed_ul .ec .tn {
+	margin: 0;
+	float: none;
+}
+
+#space #feed_div .t_feed_ul .ec a .tn {
+	padding: 0;
+	border: 0;
+}
+
+#space #feed_div .t_feed_ul .ec .d {
+	padding: 10px 15px 15px;
+	color: #7F7F7F;
+}
+
+#space #feed_div .t_feed_ul .ec .d b {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#space #feed_div .t_feed_ul .ec .others {
+	width: 72px;
+	height: 72px;
+	overflow: hidden;
+	float: left;
+	margin-right: 4px;
+	text-align: center;
+}
+
+#space #feed_div .t_feed_ul .ec .others img {
+	min-width: 72px;
+	min-height: 72px;
+}
+
+#space #feed_div .t_feed_ul .t_feedcomment {
+	padding: 5px 15px 10px;
+	border-top: 1px solid #EFEFEF;
+}
+
+#space #feed_div .t_already_deleted {
+	height: 40px;
+	background:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/icons.png)
+		no-repeat left bottom;
+}
+
+#space .t_feed_ul .bbda {
+	background: none;
+}
+
+#space #feed_div .t_feed_ul .t_feed_comment_msg {
+	color: #7F7F7F;
+}
+
+#space #feed_div .t_feed_ul .cmt {
+	margin: 0 auto;
+	padding: 0px 15px 10px;
+	border: none;
+	background: none;
+}
+
+#space #feed_div .t_haveimg {
+	
+}
+
+#space #feed_div .t_haveimg .hot {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	background: #FFF;
+	opacity: .8;
+	color: #666;
+}
+
+#space #feed_div .t_feed_ul .xw0 {
+	line-height: 28px;
+}
+
+#space .tl .th {
+	background: none !important;
+}
+
+#t_album {
+	margin-top: 15px;
+	position: relative;
+}
+
+#t_album_pics {
+	position: relative;
+}
+
+#t_album .item {
+	opacity: 0;
+	width: 224px;
+	padding: 0;
+	line-height: 1.5;
+	background-color: #fff;
+	box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-moz-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-webkit-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #adacac,
+		direction=  135, strength=  2 );
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+	text-align: left;
+}
+
+#t_album .item:hover {
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #979797,
+		direction=  135, strength=  3 );
+}
+
+#t_album .item a {
+	opacity: 1;
+}
+
+#t_album_pics .item .tn {
+	width: 224px;
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+}
+
+#t_album_pics .item:hover .tn {
+	filter: brightness(110%);
+	-webkit-filter: brightness(110%);
+	-moz-filter: brightness(110%);
+	-o-filter: brightness(110%);
+	-ms-filter: brightness(110%);
+}
+
+#t_album .item .d {
+	padding: 10px 15px 15px;
+	color: #7F7F7F;
+}
+
+#t_album .item .d .albumname {
+	font-size: 14px;
+}
+
+#t_album .item .desc {
+	width: 204px;
+	padding: 0 10px 5px;
+	white-space: normal;
+	height: auto;
+	color: #666;
+}
+
+#t_album .item .times {
+	width: 204px;
+	padding: 15px 10px 5px;
+	color: #999;
+}
+
+#t_album .item .times .fav i {
+	background-position: left -284px;
+}
+
+#t_album .item .times .share i {
+	background-position: -85px -284px;
+}
+
+#t_album .item .times .fav em,.item .times .share em {
+	font-size: 14px;
+	float: right;
+	margin: 4px 0 0 5px;
+}
+
+#t_album .item .times a:hover {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/black_sixty.png);
+	text-decoration: none;
+}
+
+#share_ul {
+	position: relative;
+	margin-top: 10px;
+}
+
+#share_ul li.fav_modify {
+	width: 222px;
+	display: none;
+	border: 1px solid #DADADA;
+	background: #FFF;
+	color: #7F7F7F;
+	padding: 0 !important;
+}
+
+#share_ul li.fav_modify .tn {
+	width: 222px;
+	height: 222px;
+	min-width: 222px;
+	min-height: 222px;
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	border: 0 !important;
+	padding: 0 !important;
+}
+
+#share_ul li.fav_modify .ec .tn {
+	margin: 0;
+}
+
+#share_ul.sl li.fav_modify .h {
+	background: none;
+	border: none;
+}
+
+#share_ul.el li.fav_modify .pic {
+	width: 222px;
+	height: 222px;
+	display: inline-block;
+}
+
+#share_ul.el li.fav_modify .d {
+	padding: 5px 15px 10px;
+}
+
+#share_ul.el li.fav_modify .d b {
+	display: inline-block;
+	line-height: 35px;
+}
+
+#share_ul.el li.fav_modify .d a,#share_ul.el .h a {
+	color: #7F7F7F;
+}
+
+#share_ul.el li.fav_modify .d b a {
+	color: #333;
+}
+
+#share_ul.el li.fav_modify .d a {
+	margin-bottom: 10px;
+}
+
+#share_ul.el li.fav_modify .line {
+	height: 1px;
+	border-bottom: 1px solid #DEDFE0;
+	width: 222px;
+}
+
+#share_ul.el li.fav_modify .quote {
+	margin: 10px;
+}
+
+#favorite_ul {
+	position: relative;
+	margin-top: 10px;
+}
+
+#favorite_ul li {
+	width: 222px;
+	display: none;
+	border: 1px solid #DADADA !important;
+	background: #FFF !important;
+	color: #7F7F7F !important;
+	padding: 0 !important;
+	position: relative;
+	overflow: hidden;
+	font-size: 0;
+}
+
+#favorite_ul li .pic img {
+	width: 222px;
+	height: 222px;
+	min-width: 222px;
+	min-height: 222px;
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+	border: 0 !important;
+	padding: 0 !important;
+}
+
+#favorite_ul li .pic {
+	width: 222px;
+	height: 222px;
+	display: inline-block;
+}
+
+#favorite_ul li .d {
+	padding: 5px 15px 10px;
+}
+
+#favorite_ul li .d b {
+	display: inline-block;
+	line-height: 35px;
+}
+
+#favorite_ul li .d a,#favorite_ul.el .h a {
+	color: #7F7F7F;
+	font-size: 12px;
+}
+
+#favorite_ul li .d b a {
+	color: #333;
+}
+
+#favorite_ul li .d a {
+	margin-bottom: 10px;
+}
+
+#favorite_ul li .d span {
+	font-size: 12px;
+}
+
+#favorite_ul li .line {
+	height: 1px;
+	border-bottom: 1px solid #DEDFE0;
+	width: 222px;
+}
+
+#favorite_ul li .quote {
+	margin: 10px;
+	font-size: 12px;
+}
+
+#favorite_ul li .h {
+	padding: 6px 10px;
+	background: none;
+	border: none;
+	font-size: 12px;
+}
+
+#album_target_ul {
+	position: relative;
+}
+
+#album_target_ul .item {
+	display: none;
+	width: 224px;
+	padding: 0;
+	line-height: 1.5;
+	background-color: #fff;
+	box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-moz-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	-webkit-box-shadow: 0 1px 2px 0 rgba(158, 158, 158, 0.3);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #adacac,
+		direction=  135, strength=  2 );
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	-o-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+	text-align: left;
+}
+
+#album_target_ul .item:hover {
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=  #979797,
+		direction=  135, strength=  3 );
+}
+
+#album_target_ul .item a {
+	opacity: 1;
+}
+
+#album_target_ul .item .tn {
+	width: 224px;
+	filter: brightness(100%);
+	-webkit-filter: brightness(100%);
+	-moz-filter: brightness(100%);
+	-o-filter: brightness(100%);
+	-ms-filter: brightness(100%);
+}
+
+#album_target_ul .item:hover .tn {
+	filter: brightness(110%);
+	-webkit-filter: brightness(110%);
+	-moz-filter: brightness(110%);
+	-o-filter: brightness(110%);
+	-ms-filter: brightness(110%);
+}
+
+#album_target_ul .item .d {
+	padding: 10px 15px 15px;
+	color: #7F7F7F;
+}
+
+#album_target_ul .item .d .albumname {
+	font-size: 14px;
+}
+
+#album_target_ul .item .desc {
+	width: 204px;
+	padding: 0 10px 5px;
+	white-space: normal;
+	height: auto;
+	color: #666;
+}
+
+#album_target_ul .item .times {
+	width: 204px;
+	padding: 15px 10px 5px;
+	color: #999;
+}
+
+#album_target_ul .item .times .fav i {
+	background-position: left -284px;
+}
+
+#album_target_ul .item .times .share i {
+	background-position: -85px -284px;
+}
+
+#album_target_ul .item .times .fav em,.item .times .share em {
+	font-size: 14px;
+	float: right;
+	margin: 4px 0 0 5px;
+}
+
+#album_target_ul .item .times a:hover {
+	background-image:
+		url(https://img.useit.com.cn/temcdn/various_artists/images/black_sixty.png);
+	text-decoration: none;
+}
+
+.share_view_more_pics a {
+	height: 50px;
+	line-height: 50px;
+	overflow: hidden;
+	border: none;
+	background: #22b4f6;
+	border-radius: 2px;
+	color: #FFF;
+	font-size: 18px;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+#comment_ul dd.avt a {
+	width: 54px;
+	height: 54px;
+	display: block;
+}
+
+#comment_ul dd.avt a img {
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.l_spacecp_album_console .y {
+	margin-top: 13px;
+}
+
+.l_spacecp_album_console .y i {
+	width: 16px;
+	height: 16px;
+	display: block;
+	margin-left: 10px;
+	font-size: 18px;
+	color: #BBB;
+}
+
+.qk_edit_album_info a {
+	width: 72px;
+	height: 29px;
+	padding: 0 20px;
+	display: inline-block;
+	margin-left: 4px;
+	margin-right: 2px;
+	line-height: 29px;
+	color: #FFF;
+	border-radius: 4px;
+	text-align: center;
+	box-shadow: none;
+	border: 1px solid #2c83e5;
+	background-color: #3c8de9;
+}
+
+#qk_upload_pic {
+	height: 29px;
+	padding: 0 20px;
+	display: inline-table;
+	border: 1px solid #53C763;
+	background: #34BE49;
+	line-height: 29px;
+	color: #FFF;
+	border-radius: 4px;
+	text-align: center;
+	box-shadow: none;
+}
+
+#newalbumid {
+	background: none;
+	border: none;
+}
+
+.l_spacecp_album_console img.flag {
+	height: 25px;
+	width: 25px;
+}
+
+.select2-results img.flag {
+	height: 25px;
+	width: 25px;
+}
+
+.l_spacecp_album_console .select2-container .select2-choice {
+	height: 25px;
+}
+
+.select2-container .select2-choice>.select2-chosen {
+	line-height: 25px;
+}
+
+.select2-results li {
+	width: 190px;
+	height: 33px;
+	padding: 3px 0;
+	line-height: 25px;
+}
+
+.select2-results i {
+	line-height: 27px;
+}
+
+.l_spacecp_album_console {
+	margin-top: 10px;
+}
+
+.l_spacecp_album_console button {
+	color: #fff;
+	height: 31px;
+	padding: 0 20px;
+	border: none;
+	border: 1px solid;
+	border-color: #2c83e5;
+	background-color: #3c8de9;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4795f7),
+		to(#3c8de9) );
+	background-image: -webkit-linear-gradient(top, #4795f7, #3c8de9);
+	background-image: -moz-linear-gradient(top, #4795f7, #3c8de9);
+	ackground-image: -ms-linear-gradient(top, #4795f7, #3c8de9);
+	background-image: -o-linear-gradient(top, #4795f7, #3c8de9);
+	background-image: linear-gradient(top, #4795f7, #3c8de9);
+	filter: progid:DXImageTransform.Microsoft.gradient(StartColorStr="#4795f7",
+		EndColorStr="#3c8de9" );
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.l_spacecp_album_console button.pn:hover {
+	opacity: .8;
+}
+
+.l_spacecp_album_console button.pn strong {
+	font-weight: normal;
+}
+
+.t_album_edit_pic ul li {
+	float: left;
+	width: 236px;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.t_album_edit_pic ul li p.pic {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	margin-left: 42px;
+}
+
+.t_album_edit_pic ul li p.pic span {
+	position: relative;
+	max-width: 140px;
+	max-height: 140px;
+	display: block;
+	border: 5px solid #FFF;
+	box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+.t_album_edit_pic ul li p.pic span:hover {
+	border: 5px solid #2e8ded;
+	background: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+.t_album_edit_pic ul li p .pc {
+	position: absolute;
+	left: 3px;
+	top: 3px;
+	line-height: 20px;
+	width: 18px;
+	height: 18px;
+}
+
+.t_album_edit_pic ul li p .pt {
+	width: 140px;
+	margin: 0;
+	background: none;
+	background: #FFF;
+}
+
+.t_album_edit_pic ul li span i {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	background: #2e8ded;
+	padding: 0 5px;
+}
+
+.t_album_edit_pic ul li span i a {
+	color: #FFF;
+}
+
+#plugin_notice .bm_c {
+	padding: 10px;
+}
+
+.u_profile li.pf_l.cl a {
+	white-space: nowrap;
+	display: inline-table;
+}

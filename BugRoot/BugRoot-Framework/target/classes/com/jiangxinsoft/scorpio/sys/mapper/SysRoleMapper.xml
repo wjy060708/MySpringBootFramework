@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysRoleMapper">
+
+	<resultMap id="roleResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysRole">
+		<id column="RoleID" property="roleId" jdbcType="VARCHAR" />
+  		
+		<result column="RoleName" property="roleName" jdbcType="VARCHAR" />
+  		<result column="RoleCode" property="roleCode" jdbcType="VARCHAR" />
+  		<result column="RoleRemark" property="roleRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<resultMap id="memberResultMap" type="com.jiangxinsoft.scorpio.sys.vo.RoleVo" extends="roleResultMap">		
+		<result column="UserID" property="userId" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_ROLE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		RoleID = #{roleId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysRole">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			RoleID,
+			
+			RoleName,
+			RoleCode,
+			RoleRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{roleId, jdbcType=VARCHAR} ,
+			
+			#{roleName, jdbcType=VARCHAR} ,
+			#{roleCode, jdbcType=VARCHAR} ,
+			#{roleRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysRole">
+		update
+			<include refid="tableNameSql"/>
+		set
+			RoleName = #{roleName, jdbcType=VARCHAR} ,
+			RoleCode = #{roleCode, jdbcType=VARCHAR} ,
+			RoleRemark = #{roleRemark, jdbcType=VARCHAR},
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="roleResultMap">
+		select
+			r.RoleID as RoleID,
+			
+			r.RoleName as RoleName,
+			r.RoleCode as RoleCode,
+			r.RoleRemark as RoleRemark
+		from 
+			SYS_ROLE r
+		where 
+			r.RoleID = #{roleId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="roleResultMap">
+		select
+			r.RoleID as RoleID,
+			
+			r.RoleName as RoleName,
+			r.RoleCode as RoleCode,
+			r.RoleRemark as RoleRemark,
+			
+			r.CreateTime as CreateTime,
+			r.UpdateTime as UpdateTime
+		from 
+			SYS_ROLE r
+		where 
+			r.RoleKind = '0'
+		
+		<if test="roleName != null and roleName != ''"> 
+			and r.RoleName = #{roleName}
+		</if>
+		
+		<if test="roleCode != null and roleCode != ''"> 
+			and r.RoleCode = #{roleCode}
+		</if>
+		
+	</select>
+	
+	<select id="selectByUserId" parameterType="String" resultMap="memberResultMap">
+		select
+			r.RoleID as RoleID,
+			
+			r.RoleName as RoleName,
+			r.RoleCode as RoleCode,
+			r.RoleRemark as RoleRemark,
+			
+			rr.UserID as UserID
+		from 
+			SYS_ROLE r left join (
+				select
+					rm.RoleID as RoleID,
+					rm.UserID as UserID
+				from 
+					SYS_ROLE_MEMBER rm
+				where
+					rm.UserID = #{userId}
+			) rr on r.RoleID = rr.RoleID
+		where 
+			r.RoleKind = '0'
+	</select>
+	
+	<select id="selectGrantedByUserId" parameterType="String" resultMap="memberResultMap">
+		select
+			r.RoleID as RoleID,
+			
+			r.RoleName as RoleName,
+			r.RoleCode as RoleCode,
+			r.RoleRemark as RoleRemark
+		from
+			SYS_ROLE r, SYS_ROLE_MEMBER rm
+		where
+			r.RoleID = rm.RoleID
+		and
+			rm.UserID = #{userId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where RoleID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

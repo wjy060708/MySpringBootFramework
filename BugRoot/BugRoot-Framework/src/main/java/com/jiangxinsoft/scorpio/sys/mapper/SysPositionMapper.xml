@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysPositionMapper">
+
+	<resultMap id="positionResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysPosition">
+		<id column="PositionID" property="positionId" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+  		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+  		
+		<result column="PositionName" property="positionName" jdbcType="VARCHAR" />
+  		<result column="PositionRemark" property="positionRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_POSITION
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		PositionID = #{positionId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysPosition">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			PositionID,
+			
+			DepartmentID,
+			
+			PositionName,
+			PositionRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{positionId, jdbcType=VARCHAR} ,
+			
+			#{departmentId, jdbcType=VARCHAR} ,
+			
+			#{positionName, jdbcType=VARCHAR} ,
+			#{positionRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysPosition">
+		update
+			<include refid="tableNameSql"/>
+		set
+			<if test="departmentId != null and departmentId != ''"> 
+				DepartmentID = #{departmentId} ,
+			</if>
+			<if test="positionName != null and positionName != ''"> 
+				PositionName = #{positionName, jdbcType=VARCHAR} ,
+			</if>
+			<if test="positionRemark != null"> 
+				PositionRemark = #{positionRemark, jdbcType=VARCHAR} ,
+			</if>
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="positionResultMap">
+		select
+			p.PositionID as PositionID,
+			
+			p.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			p.PositionName as PositionName,
+			p.PositionRemark as PositionRemark
+		from 
+			SYS_POSITION p left join SYS_ORGANIZATION o on p.DepartmentID = o.DepartmentID
+		where
+			p.PositionID = #{positionId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="positionResultMap">
+		select
+			p.PositionID as PositionID,
+			
+			p.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			p.PositionName as PositionName,
+			p.PositionRemark as PositionRemark,
+			
+			p.CreateTime as CreateTime,
+			p.UpdateTime as UpdateTime
+		from 
+			SYS_POSITION p left join SYS_ORGANIZATION o on p.DepartmentID = o.DepartmentID
+		where
+			1 = 1
+		<if test="departmentId != null and departmentId != ''">
+			and p.DepartmentID = #{departmentId}
+		</if>	
+		<if test="positionName != null and positionName != ''">
+			and p.PositionName like "%"#{positionName}"%"
+		</if>
+		<if test="departmentName != null and departmentName != ''">
+			and o.DepartmentName like "%"#{departmentName}"%"
+		</if>
+	</select>
+	
+	<select id="selectByUserId" parameterType="String" resultMap="positionResultMap">
+		select
+			p.PositionID as PositionID,
+			
+			p.DepartmentID as DepartmentID,
+			o.DepartmentName as DepartmentName,
+			
+			p.PositionName as PositionName,
+			p.PositionRemark as PositionRemark,
+			
+			p.CreateTime as CreateTime,
+			p.UpdateTime as UpdateTime
+		from 
+			SYS_POSITION p left join SYS_ORGANIZATION o on p.DepartmentID = o.DepartmentID,
+			SYS_POSITION_MEMBER pm
+		where
+			p.PositionID = pm.PositionID
+		and
+			pm.UserID = #{userId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where PositionID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

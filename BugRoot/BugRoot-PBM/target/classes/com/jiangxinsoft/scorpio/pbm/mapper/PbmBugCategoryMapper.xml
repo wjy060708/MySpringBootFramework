@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.pbm.mapper.PbmBugCategoryMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.pbm.model.PbmBugCategory">
+		<id column="CategoryID" property="categoryId" jdbcType="VARCHAR" />
+		
+		<result column="CategoryName" property="categoryName" jdbcType="VARCHAR" />
+  		<result column="CategoryRemark" property="categoryRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		PBM_BUG_CATEGORY  
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		CategoryID = #{categoryId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.pbm.model.PbmBugCategory">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			CategoryID,
+			
+			CategoryName,
+			CategoryRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{categoryId, jdbcType=VARCHAR} ,
+			
+			#{categoryName, jdbcType=VARCHAR} ,
+			#{categoryRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.pbm.model.PbmBugCategory">
+		update
+			<include refid="tableNameSql"/>
+		set
+			CategoryName = #{categoryName, jdbcType=VARCHAR} ,
+			CategoryRemark = #{categoryRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			m.CategoryID as CategoryID,
+       	
+			m.CategoryName as CategoryName,
+			m.CategoryRemark as CategoryRemark
+		from
+			PBM_BUG_CATEGORY m
+		where
+			m.CategoryID = #{categoryId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			m.CategoryID as CategoryID,
+       	
+			m.CategoryName as CategoryName,
+			m.CategoryRemark as CategoryRemark,
+			
+			m.CreateTime as CreateTime,
+			m.UpdateTime as UpdateTime
+		from
+			PBM_BUG_CATEGORY m
+		where
+			1 = 1 
+			
+		<if test="categoryName != null and categoryName != ''"> 
+			and m.CategoryName like "%"#{categoryName}"%"
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where CategoryID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

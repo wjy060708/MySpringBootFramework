@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysDictEntryMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysDictEntry">
+		<id column="EntryID" property="entryId" jdbcType="VARCHAR" />
+		
+		<result column="CategoryID" property="categoryId" jdbcType="VARCHAR" />
+		<result column="CategoryName" property="categoryName" jdbcType="VARCHAR" />
+		
+  		<result column="EntryName" property="entryName" jdbcType="VARCHAR" />
+  		<result column="EntryOrder" property="entryOrder" jdbcType="NUMERIC" />
+  		<result column="EntryState" property="entryState" jdbcType="VARCHAR" />
+  		<result column="EntryRemark" property="entryRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_DICT_ENTRY
+	</sql>
+	
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		EntryID = #{entryId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysDictEntry">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			EntryID,
+  
+  			CategoryID,
+  			
+			EntryName,
+			EntryOrder,
+			EntryState,
+			EntryRemark,
+			  
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{entryId, jdbcType=VARCHAR} ,
+			
+			#{categoryId, jdbcType=VARCHAR} ,
+			
+			#{entryName, jdbcType=VARCHAR} ,
+			#{entryOrder, jdbcType=NUMERIC} ,
+			#{entryState, jdbcType=VARCHAR} ,
+			#{entryRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysDictEntry">
+		update
+			<include refid="tableNameSql"/>
+		set	
+			<if test="entryName != null and entryName != ''">
+				EntryName = #{entryName, jdbcType=VARCHAR} ,
+			</if>
+					
+			<if test="entryOrder != null">
+				EntryOrder = #{entryOrder, jdbcType=NUMERIC} ,
+			</if>
+			
+			<if test="entryRemark != null">
+				EntryRemark = #{entryRemark, jdbcType=VARCHAR} ,
+			</if>
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<update id="updateStateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysDictEntry">
+		update
+			<include refid="tableNameSql"/>
+		set	
+			<if test="entryState != null and entryState != ''">
+				EntryState = #{entryState, jdbcType=VARCHAR} ,
+			</if>
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			i.EntryID as EntryID,
+			
+			i.CategoryID as CategoryID,
+			c.CategoryCode as CategoryCode,
+  			c.CategoryName as CategoryName,
+  			
+			i.EntryName as EntryName,
+			i.EntryOrder as EntryOrder,
+			i.EntryState as EntryState,
+			i.EntryRemark as EntryRemark,
+			  
+			i.CreateTime as CreateTime,
+			i.UpdateTime as UpdateTime
+		from
+			SYS_DICT_ENTRY i left join SYS_DICT_CATEGORY c on i.CategoryID = c.CategoryID
+		where
+			i.EntryID = #{entryId}
+	</select>
+	
+	<select id="selectByCode" parameterType="String" resultMap="modelResultMap">
+		select
+			i.EntryID as EntryID,
+			
+			i.CategoryID as CategoryID,
+  			c.CategoryName as CategoryName,
+  			c.CategoryCode as CategoryCode,
+  			
+			i.EntryName as EntryName,
+			i.EntryOrder as EntryOrder,
+			i.EntryState as EntryState,
+			i.EntryRemark as EntryRemark,
+			  
+			i.CreateTime as CreateTime,
+			i.UpdateTime as UpdateTime
+		from
+			SYS_DICT_ENTRY i left join SYS_DICT_CATEGORY c on i.CategoryID = c.CategoryID
+		where
+			i.EntryCode = #{entryCode}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			i.EntryID as EntryID,
+			
+			i.CategoryID as CategoryID,
+  			c.CategoryName as CategoryName,
+  			c.CategoryCode as CategoryCode,
+  			
+			i.EntryName as EntryName,
+			i.EntryOrder as EntryOrder,
+			i.EntryState as EntryState,
+			i.EntryRemark as EntryRemark,
+			  
+			i.CreateTime as CreateTime,
+			i.UpdateTime as UpdateTime
+		from
+			SYS_DICT_ENTRY i left join SYS_DICT_CATEGORY c on i.CategoryID = c.CategoryID
+		where
+			1 = 1
+		<if test="entryState != null and entryState != ''">
+			and i.EntryState = #{entryState}
+		</if>
+		
+		<if test="entryName != null and entryName != ''">
+			and i.EntryName like "%"#{entryName}"%"
+		</if>
+		
+		<if test="categoryId != null and categoryId != ''">
+			and i.categoryId = #{categoryId}
+		</if>
+		
+		<if test="categoryCode != null and categoryCode != ''">
+			and c.categoryCode = #{categoryCode}
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where EntryID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

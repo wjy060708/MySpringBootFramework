@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowProcessMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowProcess">
+		<id column="ProcessID" property="processId" jdbcType="VARCHAR" />
+		
+		<result column="ProcessName" property="processName" jdbcType="VARCHAR" />
+  		<result column="ProcessRemark" property="processRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_PROCESS 
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		ProcessID = #{processId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowProcess">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ProcessID,
+			
+			ProcessName,
+			ProcessRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{processId, jdbcType=VARCHAR} ,
+			
+			#{processName, jdbcType=VARCHAR} ,
+			#{processRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowProcess">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ProcessName = #{processName, jdbcType=VARCHAR} ,
+			ProcessRemark = #{processRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			p.ProcessID as ProcessID,
+       	
+			p.ProcessName as ProcessName,
+			p.ProcessRemark as ProcessRemark,
+			
+            p.CreateTime as CreateTime,
+			p.UpdateTime as UpdateTime
+		from
+			KNOW_PROCESS p
+		where
+			p.ProcessID = #{processId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			p.ProcessID as ProcessID,
+       	
+			p.ProcessName as ProcessName,
+			p.ProcessRemark as ProcessRemark,
+			
+			p.CreateTime as CreateTime,
+			p.UpdateTime as UpdateTime
+		from
+			KNOW_PROCESS p
+		where
+			1 = 1 
+			
+		<if test="processName != null and processName != ''"> 
+			and p.ProcessName like "%"#{processName}"%"
+		</if>
+		
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where ProcessID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

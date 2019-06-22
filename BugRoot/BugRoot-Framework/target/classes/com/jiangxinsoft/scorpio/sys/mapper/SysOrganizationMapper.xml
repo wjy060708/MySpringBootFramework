@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysOrganizationMapper">
+	
+	<resultMap id="organizationResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysOrganization">
+		<id column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		
+  		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+  		
+		<result column="DepartmentName" property="departmentName" jdbcType="VARCHAR" />
+		<result column="DepartmentCode" property="departmentCode" jdbcType="VARCHAR" />
+		<result column="DepartmentKind" property="departmentKind" jdbcType="VARCHAR" />
+		<result column="DepartmentOrder" property="departmentOrder" jdbcType="NUMERIC" />
+		<result column="DepartmentRemark" property="departmentRemark" jdbcType="VARCHAR" />
+		
+		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_ORGANIZATION
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		DepartmentID = #{departmentId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysOrganization">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			DepartmentID,
+			
+			ParentID,
+			
+			DepartmentName,
+			DepartmentCode,
+			DepartmentKind,
+			DepartmentOrder,
+			DepartmentRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{departmentId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR} ,
+			
+			#{departmentName, jdbcType=VARCHAR} ,
+			#{departmentCode, jdbcType=VARCHAR} ,
+			#{departmentKind, jdbcType=VARCHAR},
+			#{departmentOrder, jdbcType=NUMERIC},
+			#{departmentRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysOrganization">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ParentID = #{parentId, jdbcType=VARCHAR} ,
+			
+			DepartmentName = #{departmentName, jdbcType=VARCHAR} ,
+			DepartmentKind = #{departmentKind, jdbcType=VARCHAR},
+			DepartmentOrder = #{departmentOrder, jdbcType=NUMERIC},
+			DepartmentRemark = #{departmentRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId"/>
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="organizationResultMap">
+		select
+			d.DepartmentID as DepartmentID,
+			
+			d.ParentID as ParentID,
+			
+			d.DepartmentName as DepartmentName,
+			d.DepartmentCode as DepartmentCode,
+			d.DepartmentKind as DepartmentKind,
+			d.DepartmentOrder as DepartmentOrder,
+			d.DepartmentRemark as DepartmentRemark
+		from
+			SYS_ORGANIZATION d
+		where
+			d.DepartmentID = #{departmentId}
+	</select>
+	
+	<select id="selectByCode" parameterType="String" resultMap="organizationResultMap">
+		select
+			d.DepartmentID as DepartmentID,
+			
+			d.ParentID as ParentID,
+			
+			d.DepartmentName as DepartmentName,
+			d.DepartmentCode as DepartmentCode,
+			d.DepartmentKind as DepartmentKind,
+			d.DepartmentOrder as DepartmentOrder,
+			d.DepartmentRemark as DepartmentRemark
+		from
+			SYS_ORGANIZATION d
+		where
+			DepartmentCode = #{departmentCode}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="organizationResultMap">
+		select
+			d.DepartmentID as DepartmentID,
+			
+			d.ParentID as ParentID,
+			
+			d.DepartmentName as DepartmentName,
+			d.DepartmentCode as DepartmentCode,
+			d.DepartmentKind as DepartmentKind,
+			d.DepartmentOrder as DepartmentOrder,
+			d.DepartmentRemark as DepartmentRemark,
+			
+			d.CreateTime as CreateTime,
+			d.UpdateTime as UpdateTime
+		from
+			SYS_ORGANIZATION d
+		where 
+			d.DepartmentVisibility = '0'
+		
+		<if test="parentId != null and parentId != ''"> 
+			and d.ParentID = #{parentId}
+		</if>
+		
+		<if test="departmentName != null and departmentName != ''"> 
+			and d.DepartmentName like "%"#{departmentName}"%"
+		</if>
+		
+		<if test="departmentCode != null and departmentCode != ''"> 
+			and d.DepartmentCode like "%"#{departmentCode}"%"
+		</if>
+		
+		<if test="departmentKind != null and departmentKind != ''"> 
+			and d.DepartmentKind = #{departmentKind}
+		</if>
+	</select>
+	
+	<select id="selectByUserId" parameterType="String" resultMap="organizationResultMap">
+		select
+			d.DepartmentID as DepartmentID,
+			
+			d.ParentID as ParentID,
+			
+			d.DepartmentName as DepartmentName,
+			d.DepartmentCode as DepartmentCode,
+			d.DepartmentKind as DepartmentKind,
+			d.DepartmentOrder as DepartmentOrder,
+			d.DepartmentRemark as DepartmentRemark,
+			
+			d.CreateTime as CreateTime,
+			d.UpdateTime as UpdateTime
+		from
+			SYS_ORGANIZATION d, SYS_POSITION_MEMBER pm, SYS_POSITION_SCOPE ps
+		where
+			pm.PositionID = ps.PositionID
+		and
+			ps.DepartmentID = d.DepartmentID
+		and
+			pm.UserID = #{userId}
+	</select>
+	
+	<select id="selectByParentId" parameterType="String" resultType="String" statementType="CALLABLE">
+		<![CDATA[{
+			call sysGetChildDepartment(#{parentId, mode=IN, jdbcType=VARCHAR})
+		}]]>
+	</select>
+	
+	<select id="countByParent" parameterType="String" resultType="Integer">
+		select
+			count(d.DepartmentID)
+		from
+			<include refid="tableNameSql"/> d
+		where
+			d.ParentID = #{parentId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where DepartmentID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >
+		#{item}</foreach>
+	</delete>
+	
+</mapper>

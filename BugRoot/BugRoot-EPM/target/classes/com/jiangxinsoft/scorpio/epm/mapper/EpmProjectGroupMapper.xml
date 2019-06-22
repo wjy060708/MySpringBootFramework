@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmProjectGroupMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.model.EpmProjectGroup">
+		<id column="GroupID" property="groupId" jdbcType="VARCHAR" />
+		
+		<result column="GroupName" property="groupName" jdbcType="VARCHAR" />
+  		<result column="GroupRemark" property="groupRemark" jdbcType="VARCHAR" />
+  		<result column="GroupIcon" property="groupIcon" jdbcType="VARCHAR" />
+  		<result column="GroupOrder" property="groupOrder" jdbcType="INTEGER" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_PROJECT_GROUP
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		GroupID = #{groupId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmProjectGroup">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			GroupID,
+			
+			GroupName,
+			GroupRemark,
+			GroupIcon,
+			GroupOrder,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{groupId, jdbcType=VARCHAR} ,
+			
+			#{groupName, jdbcType=VARCHAR} ,
+			#{groupRemark, jdbcType=VARCHAR} ,
+			#{groupIcon, jdbcType=VARCHAR} ,
+			#{groupOrder, jdbcType=INTEGER} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmProjectGroup">
+		update
+			<include refid="tableNameSql"/>
+		set
+			GroupName = #{groupName, jdbcType=VARCHAR} ,
+			GroupIcon = #{groupIcon, jdbcType=VARCHAR} ,
+			GroupOrder = #{groupOrder, jdbcType=INTEGER} ,
+			GroupRemark = #{groupRemark, jdbcType=VARCHAR} ,			
+		
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			pg.GroupID as GroupID,
+       	
+			pg.GroupName as GroupName,
+			pg.GroupIcon as GroupIcon,
+			pg.GroupOrder as GroupOrder,
+			pg.GroupRemark as GroupRemark
+		from
+			EPM_PROJECT_GROUP pg
+		where
+			pg.GroupID = #{groupId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			pg.GroupID as GroupID,
+       	
+			pg.GroupName as GroupName,
+			pg.GroupRemark as GroupRemark,
+			pg.GroupIcon as GroupIcon,
+			pg.GroupOrder as GroupOrder,
+			
+			pg.CreateTime as CreateTime,
+			pg.UpdateTime as UpdateTime
+		from
+			EPM_PROJECT_GROUP pg
+		where
+			1 = 1		
+		<if test="groupName != null and groupName != ''"> 
+			and pg.GroupName like "%"#{groupName}"%"
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where GroupID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

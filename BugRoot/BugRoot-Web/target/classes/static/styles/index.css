@@ -1,0 +1,98 @@
+body {
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.top-bar {
+	margin: 0;
+	padding: 0;
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+}
+
+.top-bar-left {
+	position: absolute;
+	width: 400px;
+	height: 50px;
+	
+	background: url('../images/login_logo.png') no-repeat;
+}
+
+.top-bar-right {
+	position: absolute;
+	width: 240px;
+	height: 50px;
+	right: 0px;
+}
+
+.footer {
+	text-align: center;
+	line-height: 24px;
+}
+
+#navMenu_list {
+	padding: 0px;
+	margin: 0px;
+}
+
+#navMenu_list>li {
+	line-height: 26px;
+	list-style-type: none;
+}
+
+#navMenu_list>li>div.panel-header {
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	border-top-width: 1px;
+	border-bottom-width: 0;
+}
+
+#navMenu_list>li:first-child>div.panel-header {
+	border-top-width: 0;
+	cursor: pointer;
+}
+
+#navMenu_list>li>div.panel-header a {
+	width: 100%;
+	height: 100%;
+	color: inherit;
+	text-decoration: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+#navMenu_list>li>div.panel-header a.selected {
+	font-weight: bold;
+}
+
+.nav-menu {
+	vertical-align: middle;
+}
+
+.nav-menu>* {
+	padding-left: 10px;
+}
+
+.nav-menu-icon {
+	padding-left: 25px;
+	background-position: left center;
+}
+
+.l-table-edit {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-color: #D2E0F2;
+	border: 0px;
+}
+
+.l-table-edit-td {
+	background-color: #FFFFFF;
+}

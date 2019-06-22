@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmProjectDocumentMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.model.EpmProjectDocument">
+		<id column="DocumentID" property="documentId" jdbcType="VARCHAR" />
+		
+		<result column="ProjectID" property="projectId" jdbcType="VARCHAR" />
+		
+  		<result column="DocumentName" property="documentName" jdbcType="VARCHAR" />
+  		<result column="DocumentRemark" property="documentRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_PROJECT_DOCUMENT
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		DocumentID = #{documentId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmProjectDocument">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			DocumentID,
+			
+			ProjectID,
+			
+			DocumentName,
+			DocumentRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{documentId, jdbcType=VARCHAR} ,
+			
+			#{projectId, jdbcType=VARCHAR} ,
+	
+			#{documentName, jdbcType=VARCHAR} ,
+			#{documentRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmProjectDocument">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ProjectID = #{projectId, jdbcType=VARCHAR} ,
+			
+			DocumentName = #{documentName, jdbcType=VARCHAR} ,
+			DocumentRemark = #{documentRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			m.DocumentID as DocumentID,
+       	
+			m.ProjectID as ProjectID,
+			
+			m.DocumentName as DocumentName,
+			m.DocumentRemark as DocumentRemark
+		from
+			EPM_PROJECT_DOCUMENT m
+		where
+			m.DocumentID = #{documentId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			m.DocumentID as DocumentID,
+       	
+			m.ProjectID as ProjectID,
+			
+			m.DocumentName as DocumentName,
+			m.DocumentRemark as DocumentRemark,
+			
+			m.CreateTime as CreateTime,
+			m.UpdateTime as UpdateTime
+		from
+			EPM_PROJECT_DOCUMENT m
+		where
+			1 = 1
+			
+		<if test="documentName != null and documentName != ''"> 
+			and m.DocumentName like "%"#{documentName}"%"
+		</if>
+		
+		<if test="projectId != null and projectId != ''"> 
+			and m.ProjectID = #{projectId}
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where DocumentID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysDictCategoryMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysDictCategory">
+		<id column="CategoryID" property="categoryId" jdbcType="VARCHAR" />
+		
+  		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+  		
+  		<result column="CategoryName" property="categoryName" jdbcType="VARCHAR" />
+  		<result column="CategoryCode" property="categoryCode" jdbcType="VARCHAR" />
+  		<result column="CategoryOrder" property="categoryOrder" jdbcType="NUMERIC" />
+  		<result column="CategoryRemark" property="categoryRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_DICT_CATEGORY
+	</sql>
+	
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		CategoryID = #{categoryId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysDictCategory">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			CategoryID,
+       	
+       		ParentID,
+       		
+			CategoryName,
+			CategoryCode,
+			CategoryOrder,
+			CategoryRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{categoryId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR} ,
+			
+			#{categoryName, jdbcType=VARCHAR} ,
+			#{categoryCode, jdbcType=VARCHAR} ,
+			#{categoryOrder, jdbcType=NUMERIC} ,
+			#{categoryRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP},
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.sys.model.SysDictCategory">
+		update
+			<include refid="tableNameSql"/>
+		set
+			ParentID = #{parentId, jdbcType=VARCHAR} ,
+			
+			CategoryName = #{categoryName, jdbcType=VARCHAR},
+			CategoryCode = #{categoryCode, jdbcType=VARCHAR},
+			CategoryOrder = #{categoryOrder, jdbcType=NUMERIC} ,
+			CategoryRemark = #{categoryRemark, jdbcType=VARCHAR} ,
+			
+			UpdateTime  = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			c.CategoryID as CategoryID,
+       	
+       		c.ParentID as ParentID,
+       		
+			c.CategoryName as CategoryName,
+			c.CategoryCode as CategoryCode,
+			c.CategoryOrder as CategoryOrder,
+			c.CategoryRemark as CategoryRemark,
+			
+			c.CreateTime as CreateTime,
+			c.UpdateTime UpdateTime
+		from
+			SYS_DICT_CATEGORY c
+		where
+			c.CategoryID = #{categoryId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			c.CategoryID as CategoryID,
+       	
+       		c.ParentID as ParentID,
+       		
+			c.CategoryName as CategoryName,
+			c.CategoryCode as CategoryCode,
+			c.CategoryOrder as CategoryOrder,
+			c.CategoryRemark as CategoryRemark,
+			
+			c.CreateTime as CreateTime,
+			c.UpdateTime UpdateTime
+		from
+			SYS_DICT_CATEGORY c
+		where
+			1 = 1
+		<if test="parentId != null and parentId != ''"> 
+			and c.ParentID = #{parentId}
+		</if>
+		
+		<if test="categoryName != null and categoryName != ''"> 
+			and c.CategoryName = #{categoryName}
+		</if>
+		
+		<if test="categoryCode != null and categoryCode != ''"> 
+			and c.CategoryCode = #{categoryCode}
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where CategoryID in <foreach index="index" item="item" collection="array" separator="," 
+		open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

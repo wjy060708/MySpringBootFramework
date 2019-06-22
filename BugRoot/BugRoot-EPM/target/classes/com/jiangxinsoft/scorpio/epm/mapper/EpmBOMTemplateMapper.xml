@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmBOMTemplateMapper">
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.model.EpmBOMTemplate">
+		<id column="TemplateID" property="templateId" jdbcType="VARCHAR" />
+		
+		<result column="TemplateName" property="templateName" jdbcType="VARCHAR" />
+  		<result column="TemplateRemark" property="templateRemark" jdbcType="VARCHAR" />
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_BOM_TEMPLATE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		TemplateID = #{templateId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmBOMTemplate">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			TemplateID,
+			
+			TemplateName,
+			TemplateRemark,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{templateId, jdbcType=VARCHAR} ,
+			
+			#{templateName, jdbcType=VARCHAR} ,
+			#{templateRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmBOMTemplate">
+		update
+			<include refid="tableNameSql"/>
+		set
+			TemplateName = #{templateName, jdbcType=VARCHAR} ,
+			TemplateRemark = #{templateRemark, jdbcType=VARCHAR} ,			
+		
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			pg.TemplateID as TemplateID,
+       	
+			pg.TemplateName as TemplateName,
+			pg.TemplateRemark as TemplateRemark
+		from
+			EPM_BOM_TEMPLATE pg
+		where
+			pg.TemplateID = #{templateId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			pg.TemplateID as TemplateID,
+       	
+			pg.TemplateName as TemplateName,
+			pg.TemplateRemark as TemplateRemark,
+			
+			pg.CreateTime as CreateTime,
+			pg.UpdateTime as UpdateTime
+		from
+			EPM_BOM_TEMPLATE pg
+		where
+			1 = 1	
+				
+		<if test="templateName != null and templateName != ''"> 
+			and pg.TemplateName like "%"#{templateName}"%"
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where TemplateID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

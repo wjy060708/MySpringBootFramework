@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.epm.mapper.EpmProjectAchieMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.epm.model.EpmProjectAchie">
+		<id column="AchieID" property="achieId" jdbcType="VARCHAR" />
+		
+		<result column="EntryID" property="entryId" jdbcType="VARCHAR" />
+		<result column="UserID" property="userId" jdbcType="VARCHAR" />
+		<result column="ProjectID" property="projectId" jdbcType="VARCHAR" />
+		<result column="ResourceID" property="resourceId" jdbcType="VARCHAR" />
+		
+		<result column="DocumentExtension" property="documentExtension" jdbcType="VARCHAR" />
+		
+		<result column="AchieTitle" property="achieTitle" jdbcType="VARCHAR" />
+  		<result column="AchieAthor" property="achieAthor" jdbcType="VARCHAR" />
+  		<result column="AchieRemark" property="achieRemark" jdbcType="VARCHAR"/>
+  		
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  	
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		EPM_PROJECT_ACHIE
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		AchieID = #{achieId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.epm.model.EpmProjectAchie">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			AchieID,
+			
+			EntryID,
+			
+			UserID,
+			
+			ProjectID,
+			
+			ResourceID,
+			
+			AchieTitle,
+			AchieAthor,		
+			AchieRemark,
+			
+			CreateTime	
+		)
+		values
+		(
+			#{achieId, jdbcType=VARCHAR} ,
+			
+			#{entryId, jdbcType=VARCHAR} ,
+			
+			#{userId, jdbcType=VARCHAR} ,
+			
+			#{projectId, jdbcType=VARCHAR} ,
+			
+			#{resourceId, jdbcType=VARCHAR} ,
+	
+			#{achieTitle, jdbcType=VARCHAR} ,
+			#{achieAthor, jdbcType=VARCHAR} ,		
+			#{achieRemark, jdbcType=VARCHAR} ,
+			
+			#{createTime, jdbcType=TIMESTAMP} 
+
+		)
+	</insert>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			pd.AchieID as AchieID,
+		
+			pd.UserID as UserID,
+			u.TrueName as TrueName,
+			
+			pd.EntryID as EntryID,
+			pc.EntryName as EntryName,
+			
+			pd.ResourceID as ResourceID,
+			fr.FileExtension as DocumentExtension,
+			
+			pd.AchieTitle as AchieTitle,
+			pd.AchieAthor as AchieAthor,
+			
+			pd.AchieRemark as AchieRemark,
+			
+			pd.CreateTime as CreateTime
+		from
+			EPM_PROJECT_ACHIE pd left join EPM_BOM_ENTRY pc on pd.EntryID = pc.EntryID, 
+			SYS_FILE_RESOURCE fr,
+			SYS_USER u
+		where
+			pd.ResourceID = fr.FileID
+		and
+			pd.UserID = u.UserID
+		and
+			pd.AchieID = #{achieId}
+	</select>
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			m.AchieID as AchieID,
+       	
+			m.EntryID as EntryID,
+			
+			m.UserID as UserID,
+			
+			m.ProjectID as ProjectID,
+			
+			m.ResourceID as ResourceID,
+			
+			m.AchieTitle as AchieTitle,
+			m.AchieAthor as AchieAthor,
+			m.AchieRemark as AchieRemark,
+			
+			m.CreateTime as CreateTime
+		
+		from
+			EPM_PROJECT_ACHIE m
+		where
+			1 = 1
+					
+		<if test="achieTitle != null and achieTitle != ''"> 
+			and m.AchieTitle like "%"#{achieTitle}"%"
+		</if>
+		
+		<if test="entryId != null and entryId != ''"> 
+			and m.EntryID = #{entryId}
+		</if>
+		
+		<if test="projectId != null and projectId != ''"> 
+			and m.ProjectID = #{projectId}
+		</if>
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where AchieID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowModePreventionMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowModePrevention">
+		
+		<id column="PreventionID" property="preventionId" jdbcType="VARCHAR" />
+			
+		<result column="ModeID" property="modeId" jdbcType="VARCHAR" />
+		<result column="ModeName" property="modeName" jdbcType="VARCHAR" />
+		
+		<result column="TypeID" property="typeId" jdbcType="VARCHAR" />
+  		
+  		<result column="PreventionContent" property="preventionContent" jdbcType="VARCHAR" />
+  		
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_MODE_PREVENTION
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		PreventionID = #{preventionId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModePrevention">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			PreventionID,
+			
+			ModeID,
+			
+			TypeID,
+			
+			PreventionContent
+
+		)
+		values
+		(
+			#{preventionId, jdbcType=VARCHAR} ,
+
+			#{modeId, jdbcType=VARCHAR},
+			
+			#{typeId, jdbcType=VARCHAR},
+			
+			#{preventionContent, jdbcType=VARCHAR}
+			
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowModePrevention">
+		update
+			<include refid="tableNameSql"/>
+		set
+			PreventionContent = #{preventionContent, jdbcType=VARCHAR},
+			
+			ModeID = #{modeId, jdbcType=VARCHAR},
+			
+			TypeID = #{typeId, jdbcType=VARCHAR}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			kmc.PreventionID as PreventionID,
+			
+			kmc.ModeID as ModeID,
+			
+			kmc.TypeID as TypeID,
+			
+			kmc.PreventionContent as PreventionContent
+		from	
+			KNOW_MODE_PREVENTION kmc 			
+		where
+			kmc.PreventionID = #{preventionId}
+	</select>
+	
+	<select id="selectByUser" parameterType="String" resultMap="modelResultMap">
+		select
+			kmc.PreventionID as PreventionID,
+			
+			kmc.ModeID as ModeID,
+			
+			kmc.TypeID as TypeID,
+			
+			kmc.PreventionContent as PreventionContent
+		from	
+			KNOW_MODE_PREVENTION kmc 			
+		where
+			kmc.PreventionID = #{preventionId}
+	</select>
+	
+	
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+		    kmc.PreventionID as PreventionID,
+		    
+		    kmc.TypeID as TypeID,
+			
+			kmc.ModeID as ModeID,
+			kmd.ModeName as ModeName,
+			
+			kmc.PreventionContent as PreventionContent
+
+		from
+			KNOW_MODE_PREVENTION kmc left join KNOW_MODE kmd on kmc.modeID=kmd.modeID
+		where
+			1 = 1 
+			
+	    <if test="modeId != null and modeId != ''"> 
+			and kmc.ModeID = #{modeId}
+		</if> 
+		
+	</select>
+	
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where PreventionID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.sys.mapper.SysOrganizationRelationshipMapper">
+	
+	<resultMap id="relationshipResultMap" type="com.jiangxinsoft.scorpio.sys.model.SysOrganizationRelationship">
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		
+		<result column="DepartmentID" property="departmentId" jdbcType="VARCHAR" />
+		<result column="ParentID" property="parentId" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		SYS_ORGANIZATION_RELATIONSHIP
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.sys.model.SysOrganizationRelationship">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			ID,
+			
+			DepartmentID,
+			
+       		ParentID
+		)
+		values
+		(
+			#{id, jdbcType=VARCHAR},
+			
+			#{departmentId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="selectByDepartmentId" parameterType="String" resultMap="relationshipResultMap">
+		select
+			dr.ID as ID,
+			
+			dr.DepartmentID as DepartmentID,
+       	
+			dr.ParentID as ParentID
+		from
+			SYS_ORGANIZATION_RELATIONSHIP dr
+		where
+			dr.DepartmentID = #{departmentId}
+	</select>
+	
+	<delete id="deleteByByDepartmentId" parameterType="String">
+		delete from SYS_ORGANIZATION_RELATIONSHIP where DepartmentID = #{departmentId}
+	</delete>
+	
+</mapper>

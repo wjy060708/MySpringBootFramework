@@ -1,0 +1,291 @@
+body, html {
+	height: 100%;
+}
+
+body {
+	moz-user-select: -moz-none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.layui-layout-body {
+	margin: 0;
+	text-align: center;
+	background: url(../images/login_bg.png) repeat-x top;
+}
+
+.layadmin-login-box {
+	display: block;
+	width: 950px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.layadmin-login-box .layadmin-login-header {
+	display: block;
+	padding-top: 30px;
+	height: 80px;
+}
+
+.layadmin-login-box .layadmin-login-header .layadmin-login-logo {
+	float: left;
+	margin-top: 10px;
+}
+
+.layadmin-login-box .layadmin-login-header .layadmin-login-headerContent {
+	float: right;
+	display: block;
+	width: 280px;
+	height: 80px;
+	padding: 0 40px;
+	background: url(../images/login_header_bg.png) no-repeat top right;
+}
+
+.layadmin-login-box .layadmin-login-header .layadmin-login-headerContent .layadmin-navList {
+	display: block;
+	overflow: hidden;
+	height: 20px;
+	padding-top: 10px;
+	padding-left: 70px;
+}
+
+.layadmin-navList ul {
+	float: left;
+	display: block;
+	overflow: hidden;
+}
+
+.layadmin-navList li {
+	float: left;
+	display: block;
+	margin-left: -1px;
+	padding: 0 5px;
+	background: url(../images/login_list.png) no-repeat 0 5px;
+}
+
+.layadmin-navList a {
+	display: block;
+	white-space: nowrap;
+	line-height: 21px;
+	color: #000;
+	text-decoration: none;
+}
+
+.layadmin-navList a:hover {
+	text-decoration: underline;
+}
+
+.layadmin-login-box .layadmin-login-header .layadmin-login-headerContent .layadmin-login-title {
+	display: block;
+	padding: 15px 0 0 0px;
+}
+
+.layadmin-login-box .layadmin-login-main {
+	display: block;
+	position: relative;
+}
+
+.layadmin-user-login {
+	display: block !important;
+	position: absolute;
+	right: 20px;
+	padding: 20px 20px 0 20px;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+
+.layadmin-user-login-main {
+	width: 280px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	text-align:left;
+}
+
+.layadmin-user-login-box {
+	padding: 20px
+}
+
+.layadmin-user-login-header {
+	text-align: center
+}
+
+.layadmin-user-login-header h2 {
+	margin-bottom: 10px;
+	font-weight: 300;
+	font-size: 30px;
+	color: #000;
+}
+
+.layadmin-user-login-header p {
+	font-weight: 300;
+	color: #999;
+}
+
+.layadmin-user-login-body .layui-form-item {
+	position: relative;
+}
+
+.layadmin-user-login-icon {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	width: 38px;
+	line-height: 36px;
+	text-align: center;
+	color: #d2d2d2
+}
+
+.layadmin-user-login-body .layui-form-item .layui-input {
+	padding-left: 38px
+}
+
+.layadmin-user-login-other {
+	position: relative;
+	font-size: 0;
+	line-height: 38px;
+	padding-top: 20px
+}
+
+.layadmin-user-login-other>* {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	font-size: 14px
+}
+
+.layadmin-user-login-other .layui-icon {
+	position: relative;
+	top: 2px;
+	font-size: 26px
+}
+
+.layadmin-user-login-other a:hover {
+	opacity: .8
+}
+
+.layadmin-user-login-footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	line-height: 30px;
+	padding: 20px;
+	text-align: center;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, .5)
+}
+
+.layadmin-user-login-footer span {
+	padding: 0 5px
+}
+
+.layadmin-user-login-footer a {
+	padding: 0 5px;
+	color: rgba(0, 0, 0, .5)
+}
+
+.layadmin-user-login-footer a:hover {
+	color: rgba(0, 0, 0, 1)
+}
+
+.layadmin-user-login-main[bgimg] {
+	background-color: #fff;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .05)
+}
+
+.layadmin-user-login-theme {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center
+}
+
+.layadmin-user-login-theme ul {
+	display: inline-block;
+	padding: 5px;
+	background-color: #fff
+}
+
+.layadmin-user-login-theme ul li {
+	display: inline-block;
+	vertical-align: top;
+	width: 64px;
+	height: 43px;
+	cursor: pointer;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	background-color: #f2f2f2
+}
+
+.layadmin-user-login-theme ul li:hover {
+	opacity: .9
+}
+
+.layadmin-login-box .layadmin-login-main .layadmin-login-banner {
+	display: block;
+	height: 270px;
+}
+
+.layadmin-login-box .layadmin-login-main .layadmin-login-manual {
+	display: block;
+	height: 80px;
+	background: url(../images/login_content_bg.png) no-repeat top;
+	text-align: left;
+}
+
+.layadmin-login-box .layadmin-login-main .layadmin-login-manual .layadmin-login-helpList {
+	float: right;
+	width: 280px;
+}
+
+.layadmin-login-helpList li {
+	display: block;
+	padding-left: 10px;
+	background: url(../images/login_list.png) no-repeat 0 -40px;
+}
+
+.layadmin-login-helpList a {
+	line-height: 21px;
+	color: #333;
+	text-decoration: none;
+}
+
+.layadmin-login-helpList a:hover {
+	text-decoration: underline;
+}
+
+.layadmin-login-box .layadmin-login-main .layadmin-login-manual .layadmin-login-inner {
+	display: block;
+	width: 560px;
+	padding: 30px 20px 0 20px;
+}
+
+.layadmin-login-inner p {
+	margin: 10px 0;
+	line-height: 150%;
+	font-size: 14px;
+	color: #666;
+}
+
+.layadmin-login-box .layadmin-login-footer {
+	clear: both;
+	display: block;
+	margin-bottom: 20px;
+	padding: 10px;
+	color: #666;
+	text-align: center;
+}
+
+@media 
+screen and (max-width:768px) {
+	.layadmin-user-login {
+		padding-top: 80px
+	}
+	.layadmin-user-login-main {
+		width: 300px
+	}
+}

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jiangxinsoft.scorpio.knowledge.mapper.KnowTypeMapper">
+
+	<resultMap id="modelResultMap" type="com.jiangxinsoft.scorpio.knowledge.model.KnowType">
+		<id column="TypeID" property="typeId" jdbcType="VARCHAR" />
+		
+		<result column="TypeName" property="typeName" jdbcType="VARCHAR" />	
+		<result column="ImageUrl" property="imageUrl" jdbcType="VARCHAR" />	
+  		<result column="TypeRemark" property="typeRemark" jdbcType="VARCHAR" />	
+  		<result column="TypeOrder" property="typeOrder" jdbcType="VARCHAR" />
+
+  		<result column="CreateTime" property="createTime" jdbcType="TIMESTAMP"/>
+  		<result column="UpdateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		KNOW_Type 
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		TypeID = #{typeId}
+	</sql>
+	
+	<insert id="insert" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowType">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			TypeID,
+			
+			ParentID,
+			
+			TypeName,
+			ImageUrl,
+			TypeRemark,
+			TypeOrder,
+			
+			CreateTime,
+			UpdateTime
+		)
+		values
+		(
+			#{typeId, jdbcType=VARCHAR} ,
+			
+			#{parentId, jdbcType=VARCHAR} ,
+			
+			#{typeName, jdbcType=VARCHAR} ,
+			#{imageUrl, jdbcType=VARCHAR} ,
+			#{typeRemark, jdbcType=VARCHAR} ,
+			#{typeOrder, jdbcType=VARCHAR} ,
+			#{createTime, jdbcType=TIMESTAMP} ,
+			#{updateTime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.jiangxinsoft.scorpio.knowledge.model.KnowType">
+		update
+			<include refid="tableNameSql"/>
+		set
+			TypeName = #{typeName, jdbcType=VARCHAR} ,
+			TypeOrder = #{typeOrder, jdbcType=VARCHAR} ,
+			ParentID =  #{parentId, jdbcType=VARCHAR} ,
+			TypeRemark = #{typeRemark, jdbcType=VARCHAR} ,
+			UpdateTime = #{updateTime, jdbcType=TIMESTAMP}
+			
+		where <include refid="conditionOnlyId" />
+	</update>
+	
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="modelResultMap">
+		select
+			kt.TypeID as TypeID,
+			
+			kt.ParentID as ParentID,
+			
+			kt.TypeName as TypeName,	
+	        kt.TypeOrder as TypeOrder,
+	        kt.TypeRemark as TypeRemark,
+	        
+	        kt.CreateTime as  CreateTime,
+	        kt.UpdateTime as  UpdateTime
+
+		from
+			KNOW_TYPE kt 
+		where
+			kt.TypeID = #{typeID}
+	</select>
+
+	<select id="select" parameterType="hashMap" resultMap="modelResultMap">
+		select
+			kt.TypeID as TypeID,
+			
+			kt.ParentID as ParentID,
+			
+			kt.TypeName as TypeName,	
+			kt.TypeOrder as TypeOrder,
+			kt.TypeRemark as TypeRemark,
+			
+			kt.CreateTime as  CreateTime,
+	        kt.UpdateTime as  UpdateTime
+	
+		from
+			KNOW_TYPE kt  
+		where
+			1 = 1 
+			
+	    <if test="typeName != null and typeName != ''"> 
+			and kt.TypeName like "%"#{typeName}"%"
+		</if>  
+		
+		<if test="typeId != null and typeId != ''"> 
+			and kt.TypeID = #{typeId}
+		</if> 
+		
+		<if test="parentId != null and parentId != ''"> 
+			and kt.ParentID = #{parentId}
+		</if> 
+		
+	</select>
+	
+	
+	<select id="selectByPrarentKey" parameterType="String" resultMap="modelResultMap">
+		select
+			kt.TypeID as TypeID,
+			
+			kt.ParentID as ParentID,
+			
+			kt.TypeName as TypeName,	
+	        kt.TypeOrder as TypeOrder,
+	        kt.TypeRemark as TypeRemark,
+	        
+	        kt.CreateTime as  CreateTime,
+	        kt.UpdateTime as  UpdateTime
+
+		from
+			KNOW_TYPE kt 
+		where
+			kt.ParentID = #{parentId}
+	</select>
+	
+	<select id="selectByName" parameterType="String" resultType="String">
+		select
+			kt.TypeID as TypeID
+		from
+			KNOW_TYPE kt  
+		where
+            kt.TypeName = #{typeName}
+	</select>
+	
+	<select id="selectFirstType" parameterType="hashMap" resultMap="modelResultMap">
+		select
+		
+			kt.TypeID as TypeID,
+			kt.ParentID as ParentID,
+			kt.TypeName as TypeName,	
+			kt.ImageUrl as ImageUrl,
+			kt.TypeOrder as TypeOrder,
+			kt.TypeRemark as TypeRemark,
+			kt.CreateTime as  CreateTime,
+	        kt.UpdateTime as  UpdateTime
+	
+		from
+			KNOW_TYPE kt  
+		where
+			ParentID is null or parentID = ''
+		
+	</select>
+	
+	<select id="countByParent" parameterType="String" resultType="Integer">
+		select
+			count(p.TypeID)
+		from
+			<include refid="tableNameSql"/> p
+		where
+			p.ParentID = #{parentId}
+	</select>
+	
+	<delete id="deleteByPrimaryKey" parameterType="String">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+	
+	<delete id="deleteByPrimaryKeys" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where TypeID in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+	
+</mapper>

@@ -1,0 +1,99 @@
+.icon-sys-system {
+	background:url('icon-sys-system/icon-sys-system.png') no-repeat center center;
+}
+
+.icon-sys-system-manage {
+	background: url('icon-sys-system/icon-system-manage.png') no-repeat center center;
+}
+
+.icon-sys-preferences {
+	background:url('icon-sys-system/icon-preferences.png') no-repeat center center;
+}
+
+.icon-sys-config {
+	background: url('icon-sys-system/icon-config.png') no-repeat center center;
+}
+
+.icon-sys-modules {
+	background:url('icon-sys-system/icon-modules.png') no-repeat center center;
+}
+
+.icon-sys-module-pages {
+	background: url('icon-sys-system/icon-module-pages.png') no-repeat center center;
+}
+
+.icon-sys-organization {
+	background:url('icon-sys-system/icon-organization.png') no-repeat center center;
+}
+
+.icon-sys-org-add {
+	background:url('icon-sys-system/icon-org-add.png') no-repeat center center;
+}
+
+.icon-sys-org-delete {
+	background:url('icon-sys-system/icon-org-delete.png') no-repeat center center;
+}
+
+.icon-sys-department-config {
+	background:url('icon-sys-system/icon-department-config.png') no-repeat center center;	
+}
+
+.icon-ogn {
+	background:url('icon-sys-system/icon-ogn.png') no-repeat center center;
+}
+
+.icon-sys-position {
+	background:url('icon-sys-system/icon-position.png') no-repeat center center;
+}
+
+.icon-sys-position-config {
+	background:url('icon-sys-system/icon-position-config.png') no-repeat center center;
+}
+
+.icon-sys-role {
+	background: url('icon-sys-system/icon-role.png') no-repeat center center;
+}
+
+.icon-sys-role-config {
+	background: url('icon-sys-system/icon-role-config.png') no-repeat center center;
+}
+
+.icon-sys-users {
+	background:url('icon-sys-system/icon-users.png') no-repeat center center;
+}
+
+.icon-sys-user-config {
+	background:url('icon-sys-system/icon-user-config.png') no-repeat center center;
+}
+
+.icon-sys-user-add {
+	background:url('icon-sys-system/icon-user-add.png') no-repeat center center;
+}
+
+.icon-sys-user-delete {
+	background:url('icon-sys-system/icon-user-delete.png') no-repeat center center;
+}
+
+.icon-dpt {
+	background:url('icon-sys-system/icon-dpt.png') no-repeat center center;
+}
+
+.icon-sys-export {
+	background:url('icon-sys-system/icon-export.png') no-repeat center center;
+}
+
+.icon-sys-log-audit {
+	background:url('icon-sys-system/icon-log-audit.png') no-repeat center center;
+}
+
+.icon-sys-logs {
+	background:url('icon-sys-system/icon-logs.png') no-repeat center center;
+}
+
+.icon-sys-files {
+	background:url('icon-sys-system/icon-files.png') no-repeat center center;
+}
+
+.icon-sys-grant {
+	background:url('icon-sys-system/icon-grant.png') no-repeat center center;
+}
